@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- ============================================
+         ELLI-PSE - Expérience Interactive Transmédia
+         Version: 1.5.20
+         © 2025 - La Grande Ourse Prod
+    ============================================= -->
+    
+    <!-- Meta tags essentiels -->
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ELLI-PSE - Une mini-série interactive en 10 épisodes. Résous les énigmes, découvre la vérité derrière Alex.">
+    <meta name="theme-color" content="#0F1724">
+    
+    <!-- Open Graph pour les réseaux sociaux -->
+    <meta property="og:title" content="ELLI-PSE - Expérience Interactive">
+    <meta property="og:description" content="Une mini-série interactive où chaque indice compte. Plonge dans un thriller immersif et sombre.">
+    <meta property="og:type" content="website">
+    
+<title>ELLI-PSE</title>
+    
+    <!-- Préchargement des polices pour de meilleures performances -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Polices -->
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    
+    <!-- Icônes Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" 
+          integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" 
+          crossorigin="anonymous" 
+          referrerpolicy="no-referrer">
+    
+    <!-- Feuille de styles principale -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- 
+    ============================================
+    SKIP LINK POUR ACCESSIBILITÉ
+    ============================================
+    -->
+    <a href="#main-content" class="visually-hidden">Aller au contenu principal</a>
+
+    <!-- 
+    ============================================
+    PAGE D'ACCUEIL AVEC COMPTE À REBOURS
+    ============================================
+    -->
+    <main class="container" id="homePage" role="main">
+        <h1 class="title glitch-effect" data-text="ELLI-PSE">ELLI-PSE</h1>
+        <p class="subtitle">Chaque énigme te rapproche de la vérité...</p>
+        
+        <!-- Compte à rebours -->
+        <div class="countdown" role="timer" aria-label="Compte à rebours jusqu'au lancement">
+            <div class="countdown-item">
+                <div class="countdown-value" id="days" aria-label="Jours">000</div>
+                <div class="countdown-label">JOURS</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-value" id="hours" aria-label="Heures">00</div>
+                <div class="countdown-label">HEURES</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-value" id="minutes" aria-label="Minutes">00</div>
+                <div class="countdown-label">MINUTES</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-value" id="seconds" aria-label="Secondes">00</div>
+                <div class="countdown-label">SECONDES</div>
+            </div>
+        </div>
+        
+        <button class="btn" id="startBtn" type="button" aria-haspopup="dialog">
+            Commencer l'expérience
+        </button>
+    </main>
+    
+    <!-- 
+    ============================================
+    MODAL POUR LE CODE D'ACCÈS
+    ============================================
+    -->
+    <div class="modal" id="accessModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-content">
+            <h2 class="modal-title" id="modalTitle">Entrez le code d'accès</h2>
+            <label for="accessCode" class="visually-hidden">Code d'accès</label>
+            <input type="text" 
+                   class="modal-input" 
+                   id="accessCode" 
+                   placeholder="CODE D'ACCÈS" 
+                   maxlength="12"
+                   autocomplete="off"
+                   aria-describedby="errorMessage">
+            <div class="error-message" id="errorMessage" role="alert" aria-live="assertive">
+                ⚠ Accès refusé
+            </div>
+            <div class="modal-buttons">
+                <button class="btn modal-btn" id="submitBtn" type="button">Valider</button>
+                <button class="btn modal-btn" id="cancelBtn" type="button">Annuler</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 
+    ============================================
+    MENU PRINCIPAL
+    ============================================
+    -->
+    <div class="terminal-frame" id="mainMenu" role="navigation" aria-label="Menu principal">
+        <header class="terminal-header">
+            <div class="terminal-title">ELLI-PSE://terminal_access/main_menu</div>
+            <div class="terminal-controls" aria-hidden="true">
+                <div class="terminal-control control-red"></div>
+                <div class="terminal-control control-yellow"></div>
+                <div class="terminal-control control-green"></div>
+            </div>
+        </header>
+        
+        <h1 class="menu-title">MENU ELLI-PSE</h1>
+        <p class="menu-subtitle">Explore les failles, découvre la vérité...</p>
+        
+        <div class="menu-grid" role="list">
+            <div class="menu-item" 
+                 data-target="enigmes" 
+                 role="listitem" 
+                 tabindex="0"
+                 aria-label="Accéder aux énigmes">
+                <div class="menu-icon" aria-hidden="true"><i class="fas fa-puzzle-piece"></i></div>
+                <h2 class="menu-item-title">ÉNIGMES</h2>
+                <p class="menu-desc">Résous les puzzles pour avancer dans l'histoire</p>
+            </div>
+            
+            <div class="menu-item" 
+                 data-target="episodes" 
+                 role="listitem" 
+                 tabindex="0"
+                 aria-label="Accéder aux épisodes">
+                <div class="menu-icon" aria-hidden="true"><i class="fas fa-film"></i></div>
+                <h2 class="menu-item-title">ÉPISODES</h2>
+                <p class="menu-desc">Découvre les chapitres de l'histoire</p>
+            </div>
+            
+            <div class="menu-item" 
+                 data-target="faq" 
+                 role="listitem" 
+                 tabindex="0"
+                 aria-label="Accéder à la FAQ">
+                <div class="menu-icon" aria-hidden="true"><i class="fas fa-question-circle"></i></div>
+                <h2 class="menu-item-title">FAQ</h2>
+                <p class="menu-desc">Toutes les réponses à tes questions</p>
+            </div>
+            
+            <div class="menu-item" 
+                 data-target="apropos" 
+                 role="listitem" 
+                 tabindex="0"
+                 aria-label="Accéder à la page À propos">
+                <div class="menu-icon" aria-hidden="true"><i class="fas fa-info-circle"></i></div>
+                <h2 class="menu-item-title">À PROPOS DE NOUS</h2>
+                <p class="menu-desc">Qui sommes-nous et quelle est notre mission</p>
+            </div>
+        </div>
+        
+        <a href="#" class="back-btn" id="homeBtn">Retour à l'accueil</a>
+        
+        <footer class="terminal-footer">
+            <div class="status">
+                <div class="status-dot" aria-hidden="true"></div>
+                <span>Connexion sécurisée</span>
+            </div>
+            <div class="version">v1.5.20</div>
+        </footer>
+    </div>
+    
+    <!-- 
+    ============================================
+    PAGE FAQ
+    ============================================
+    -->
+    <article class="terminal-frame content-page" id="faqPage">
+        <header class="terminal-header">
+            <div class="terminal-title">ELLI-PSE://terminal_access/faq</div>
+            <div class="terminal-controls" aria-hidden="true">
+                <div class="terminal-control control-red"></div>
+                <div class="terminal-control control-yellow"></div>
+                <div class="terminal-control control-green"></div>
+            </div>
+        </header>
+        
+        <h1 class="content-title">FAQ – Décrypte l'univers d'ELLI-PSE</h1>
+        
+        <section class="content-section">
+            <div class="faq-item">
+                <h3 class="faq-question">
+                    <i class="fas fa-question-circle" aria-hidden="true"></i> 
+                    Qu'est-ce qu'ELLI-PSE ?
+                </h3>
+                <p class="faq-answer">Une mini-série interactive en 10 épisodes, où chaque indice compte. Plus tu explores, plus tu comprends la vérité derrière Alex.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3 class="faq-question">
+                    <i class="fas fa-gamepad" aria-hidden="true"></i> 
+                    Comment participer à l'expérience interactive ?
+                </h3>
+                <p class="faq-answer">Sur chaque épisode, des énigmes sont cachées. Trouve les codes, scanne les indices, et accède à des révélations exclusives via cette plateforme.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3 class="faq-question">
+                    <i class="fas fa-calendar-alt" aria-hidden="true"></i> 
+                    Quand sortent les prochains épisodes ?
+                </h3>
+                <p class="faq-answer">Le premier épisode sera disponible le dimanche 25 janvier 2026 à 15h20. Les suivants seront débloqués chaque dimanche à la même heure. Le menu "Épisodes" affiche le planning complet.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3 class="faq-question">
+                    <i class="fas fa-user-circle" aria-hidden="true"></i> 
+                    Ai-je besoin d'un compte pour jouer ?
+                </h3>
+                <p class="faq-answer">Non, pas besoin de compte. Tu peux accéder librement aux énigmes et vidéos. Mais attention : certains codes ne sont trouvables qu'en communauté...</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3 class="faq-question">
+                    <i class="fas fa-lightbulb" aria-hidden="true"></i> 
+                    Un indice sera-t-il donné si je bloque sur une énigme ?
+                </h3>
+                <p class="faq-answer">Oui, via notre groupe Telegram (lien disponible après certains épisodes), où les spectateurs s'entraident pour percer les mystères d'ELLI-PSE.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3 class="faq-question">
+                    <i class="fas fa-clock" aria-hidden="true"></i> 
+                    Puis-je visionner les épisodes plus tard ?
+                </h3>
+                <p class="faq-answer">Oui, une fois débloqués, tous les épisodes restent disponibles dans la rubrique "Épisodes" pour être visionnés à tout moment.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3 class="faq-question">
+                    <i class="fas fa-coins" aria-hidden="true"></i> 
+                    L'expérience est-elle gratuite ?
+                </h3>
+                <p class="faq-answer">Oui, le projet est 100 % gratuit et indépendant. Partager la série est la meilleure façon de nous soutenir.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3 class="faq-question">
+                    <i class="fas fa-book" aria-hidden="true"></i> 
+                    Est-ce une histoire vraie ?
+                </h3>
+                <p class="faq-answer">Non. Bien que l'univers s'inspire d'éléments réalistes, tout est fictif et conçu pour l'expérience interactive.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3 class="faq-question">
+                    <i class="fas fa-user-secret" aria-hidden="true"></i> 
+                    Qui est vraiment Alex ?
+                </h3>
+                <p class="faq-answer">Certains disent qu'il est une victime, d'autres qu'il cache plus qu'il ne le montre. La vérité se cache dans les fichiers que toi seul peux déverrouiller.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3 class="faq-question">
+                    <i class="fas fa-exclamation-triangle" aria-hidden="true"></i> 
+                    Puis-je échouer dans l'expérience ?
+                </h3>
+                <p class="faq-answer">Il n'y a pas d'échec… seulement des vérités que tu n'as pas encore découvertes. Plus tu cherches, plus le puzzle se complète. Mais attention : chaque seconde compte.</p>
+            </div>
+        </section>
+        
+        <a href="#" class="back-btn back-to-menu">Retour au menu</a>
+        
+        <footer class="terminal-footer">
+            <div class="status">
+                <div class="status-dot" aria-hidden="true"></div>
+                <span>Connexion sécurisée</span>
+            </div>
+            <div class="version">v1.5.20</div>
+        </footer>
+    </article>
+    
+    <!-- 
+    ============================================
+    PAGE À PROPOS
+    ============================================
+    -->
+    <article class="terminal-frame content-page" id="aproposPage">
+        <header class="terminal-header">
+            <div class="terminal-title">ELLI-PSE://terminal_access/about</div>
+            <div class="terminal-controls" aria-hidden="true">
+                <div class="terminal-control control-red"></div>
+                <div class="terminal-control control-yellow"></div>
+                <div class="terminal-control control-green"></div>
+            </div>
+        </header>
+        
+        <h1 class="content-title">À propos – La Grande Ourse x ELLI-PSE</h1>
+        
+        <section class="content-section">
+            <p class="about-text">La Grande Ourse est une boîte de production indépendante fondée par trois passionnés d'audiovisuel, née de l'association L'Étoile de la Grande Ourse.</p>
+            
+            <p class="about-text">Notre objectif : donner vie à des idées originales et faire émerger les talents de jeunes créateurs issus de la banlieue sud de Paris.</p>
+            
+            <p class="about-text">Nous croyons en la force des histoires, en leur pouvoir de fédérer, d'émouvoir et d'inspirer. Chaque projet que nous portons vise à offrir une voix à ceux qu'on entend trop peu, à créer des récits percutants, immersifs et porteurs de sens.</p>
+            
+            <p class="about-text">Avec ELLI-PSE, notre ambition est claire : plonger le public dans un thriller immersif, sombre et intrigant, où chaque épisode dévoile une nouvelle pièce du puzzle. Énigmes, indices cachés, secrets enfouis… à vous de découvrir la vérité.</p>
+            
+            <div class="mission-section">
+                <h2 class="mission-title">
+                    <i class="fas fa-bullseye" aria-hidden="true"></i> 
+                    Notre mission
+                </h2>
+                <ul class="mission-list">
+                    <li class="mission-item">Offrir des récits percutants et interactifs</li>
+                    <li class="mission-item">Éveiller, surprendre, déranger parfois, toujours captiver</li>
+                    <li class="mission-item">Créer une communauté de spectateurs-enquêteurs qui vivent l'histoire en même temps qu'ils la regardent</li>
+                </ul>
+            </div>
+            
+            <div class="mission-section">
+                <h2 class="mission-title">
+                    <i class="fas fa-lightbulb" aria-hidden="true"></i> 
+                    Et après ?
+                </h2>
+                <p class="about-text">ELLI-PSE n'est qu'un début. De nouveaux formats arrivent bientôt : courts-métrages, séries web, expériences interactives inédites.</p>
+                <p class="about-text">Merci de soutenir ce projet indépendant en partageant la série et en rejoignant l'aventure.</p>
+            </div>
+            
+            <nav class="social-section" aria-label="Liens sociaux">
+                <a href="https://instagram.com/lgoprod" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="social-link"
+                   aria-label="Suivez-nous sur Instagram @lgoprod (ouvre dans un nouvel onglet)">
+                    <i class="fab fa-instagram" aria-hidden="true"></i> 
+                    Suivez-nous sur Instagram : @lgoprod
+                </a>
+                <a href="mailto:grandeourseprod@gmail.com" 
+                   class="social-link"
+                   aria-label="Envoyer un email à grandeourseprod@gmail.com">
+                    <i class="fas fa-envelope" aria-hidden="true"></i> 
+                    Contactez-nous : grandeourseprod@gmail.com
+                </a>
+</nav>
+            
+            <p class="copyright">© 2025 – La Grande Ourse Prod</p>
+        </section>
+        
+        <a href="#" class="back-btn back-to-menu">Retour au menu</a>
+        
+        <footer class="terminal-footer">
+            <div class="status">
+                <div class="status-dot" aria-hidden="true"></div>
+                <span>Connexion sécurisée</span>
+            </div>
+            <div class="version">v1.5.20</div>
+        </footer>
+    </article>
+    
+    <!-- 
+    ============================================
+    PAGE ÉNIGMES
+    ============================================
+    -->
+    <article class="terminal-frame content-page" id="enigmesPage">
+        <header class="terminal-header">
+            <div class="terminal-title">ELLI-PSE://terminal_access/enigmes</div>
+            <div class="terminal-controls" aria-hidden="true">
+                <div class="terminal-control control-red"></div>
+                <div class="terminal-control control-yellow"></div>
+                <div class="terminal-control control-green"></div>
+            </div>
+        </header>
+        
+        <h1 class="content-title">ÉNIGMES</h1>
+        <p class="subtitle">Sélectionnez un dossier et entrez le code d'accès pour déverrouiller les indices</p>
+        
+        <!-- Section de progression -->
+        <section class="progress-section" id="progressSection" aria-label="Progression du mystère">
+            <div class="mission-section">
+                <h2 class="mission-title">
+                    <i class="fas fa-puzzle-piece" aria-hidden="true"></i> 
+                    Progression du mystère
+                </h2>
+                <div class="progress-container">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="8">
+                        <div class="progress-fill" id="progressFill"></div>
+                        <div class="progress-text" id="progressText">0/8 lettres découvertes</div>
+                    </div>
+                    <div class="letters-discovered" id="lettersDiscovered" role="list" aria-label="Lettres découvertes">
+                        <div class="letter-slot" data-position="1" role="listitem" aria-label="Lettre 1: non découverte">?</div>
+                        <div class="letter-slot" data-position="2" role="listitem" aria-label="Lettre 2: non découverte">?</div>
+                        <div class="letter-slot" data-position="3" role="listitem" aria-label="Lettre 3: non découverte">?</div>
+                        <div class="letter-slot" data-position="4" role="listitem" aria-label="Lettre 4: non découverte">?</div>
+                        <div class="letter-slot" data-position="5" role="listitem" aria-label="Lettre 5: non découverte">?</div>
+                        <div class="letter-slot" data-position="6" role="listitem" aria-label="Lettre 6: non découverte">?</div>
+                        <div class="letter-slot" data-position="7" role="listitem" aria-label="Lettre 7: non découverte">?</div>
+                        <div class="letter-slot" data-position="8" role="listitem" aria-label="Lettre 8: non découverte">?</div>
+                    </div>
+                    <div class="final-word" id="finalWord" style="display: none;" role="alert">
+                        <div class="final-word-title">🎉 MYSTÈRE RÉSOLU ! 🎉</div>
+                        <div class="final-word-text">ELLIPSE2</div>
+                        <div class="final-word-subtitle">Félicitations ! Vous avez percé le secret d'ELLI-PSE.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="content-section">
+            <!-- Grille des dossiers d'énigmes -->
+            <div class="enigme-folders-grid" role="list" aria-label="Dossiers des énigmes">
+                <div class="enigme-folder" 
+                     data-episode="1" 
+                     data-password="Le vrai fichier est ailleurs"
+                     role="listitem"
+                     tabindex="0"
+                     aria-label="Dossier Épisode 1 - Verrouillé">
+                    <div class="folder-icon" aria-hidden="true"><i class="fas fa-folder"></i></div>
+                    <div class="folder-title">ÉPISODE 1</div>
+                    <div class="folder-status">VERROUILLÉ</div>
+                </div>
+                
+                <div class="enigme-folder" 
+                     data-episode="2" 
+                     data-password="AL920315"
+                     role="listitem"
+                     tabindex="0"
+                     aria-label="Dossier Épisode 2 - Verrouillé">
+                    <div class="folder-icon" aria-hidden="true"><i class="fas fa-folder"></i></div>
+                    <div class="folder-title">ÉPISODE 2</div>
+                    <div class="folder-status">VERROUILLÉ</div>
+                </div>
+                
+                <div class="enigme-folder" 
+                     data-episode="3" 
+                     data-password="Homework got your head in a whirl?"
+                     role="listitem"
+                     tabindex="0"
+                     aria-label="Dossier Épisode 3 - Verrouillé">
+                    <div class="folder-icon" aria-hidden="true"><i class="fas fa-folder"></i></div>
+                    <div class="folder-title">ÉPISODE 3</div>
+                    <div class="folder-status">VERROUILLÉ</div>
+                </div>
+                
+                <div class="enigme-folder" 
+                     data-episode="4" 
+                     data-password="Attention, le danger approche rapidement"
+                     role="listitem"
+                     tabindex="0"
+                     aria-label="Dossier Épisode 4 - Verrouillé">
+                    <div class="folder-icon" aria-hidden="true"><i class="fas fa-folder"></i></div>
+                    <div class="folder-title">ÉPISODE 4</div>
+                    <div class="folder-status">VERROUILLÉ</div>
+                </div>
+                
+                <div class="enigme-folder" 
+                     data-episode="5" 
+                     data-password="4.7-Pourpre"
+                     role="listitem"
+                     tabindex="0"
+                     aria-label="Dossier Épisode 5 - Verrouillé">
+                    <div class="folder-icon" aria-hidden="true"><i class="fas fa-folder"></i></div>
+                    <div class="folder-title">ÉPISODE 5</div>
+                    <div class="folder-status">VERROUILLÉ</div>
+                </div>
+                
+                <div class="enigme-folder" 
+                     data-episode="6" 
+                     data-password="MOSAÏQUE"
+                     role="listitem"
+                     tabindex="0"
+                     aria-label="Dossier Épisode 6 - Verrouillé">
+                    <div class="folder-icon" aria-hidden="true"><i class="fas fa-folder"></i></div>
+                    <div class="folder-title">ÉPISODE 6</div>
+                    <div class="folder-status">VERROUILLÉ</div>
+                </div>
+                
+                <div class="enigme-folder" 
+                     data-episode="7" 
+                     data-password="SALTCRYPTO_EVA94"
+                     role="listitem"
+                     tabindex="0"
+                     aria-label="Dossier Épisode 7 - Verrouillé">
+                    <div class="folder-icon" aria-hidden="true"><i class="fas fa-folder"></i></div>
+                    <div class="folder-title">ÉPISODE 7</div>
+                    <div class="folder-status">VERROUILLÉ</div>
+                </div>
+                
+                <div class="enigme-folder" 
+                     data-episode="8" 
+                     data-password="05.22.01.94"
+                     role="listitem"
+                     tabindex="0"
+                     aria-label="Dossier Épisode 8 - Verrouillé">
+                    <div class="folder-icon" aria-hidden="true"><i class="fas fa-folder"></i></div>
+                    <div class="folder-title">ÉPISODE 8</div>
+                    <div class="folder-status">VERROUILLÉ</div>
+                </div>
+                
+                <div class="enigme-folder" 
+                     data-episode="9" 
+                     data-password="Lot 47"
+                     role="listitem"
+                     tabindex="0"
+                     aria-label="Dossier Épisode 9 - Verrouillé">
+                    <div class="folder-icon" aria-hidden="true"><i class="fas fa-folder"></i></div>
+                    <div class="folder-title">ÉPISODE 9</div>
+                    <div class="folder-status">VERROUILLÉ</div>
+                </div>
+                
+                <div class="enigme-folder" 
+                     data-episode="10" 
+                     data-password="ELLIPSE2"
+                     role="listitem"
+                     tabindex="0"
+                     aria-label="Dossier Épisode 10 - Verrouillé">
+                    <div class="folder-icon" aria-hidden="true"><i class="fas fa-folder"></i></div>
+                    <div class="folder-title">ÉPISODE 10</div>
+                    <div class="folder-status">VERROUILLÉ</div>
+                </div>
+            </div>
+            
+            <!-- Section d'authentification -->
+            <div class="enigme-auth-section" id="enigmeAuthSection" style="display: none;">
+                <div class="mission-section">
+                    <h2 class="mission-title">
+                        <i class="fas fa-key" aria-hidden="true"></i> 
+                        Authentification requise
+                    </h2>
+                    <p class="about-text" id="selectedEpisodeText">
+                        Saisissez le mot de passe pour accéder aux indices de l'épisode sélectionné.
+                    </p>
+                    
+                    <div class="text-center" style="margin: 2rem 0;">
+                        <label for="enigmePasswordInput" class="visually-hidden">Mot de passe de l'énigme</label>
+                        <input type="password" 
+                               class="enigme-password-input" 
+                               id="enigmePasswordInput" 
+                               placeholder="MOT DE PASSE" 
+                               maxlength="50"
+                               autocomplete="off">
+                        <div style="margin-top: 1rem;">
+                            <button class="btn enigme-submit-btn" id="enigmeSubmitBtn" type="button">
+                                DÉVERROUILLER
+                            </button>
+                            <button class="btn enigme-cancel-btn" id="enigmeCancelBtn" type="button">
+                                ANNULER
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Contenu déverrouillé -->
+            <div class="enigme-content" id="enigmeContent" style="display: none;">
+                <div class="mission-section">
+                    <h2 class="mission-title" id="contentTitle">
+                        <i class="fas fa-unlock" aria-hidden="true"></i> 
+                        INDICE DÉCHIFFRÉ
+                    </h2>
+                    <div class="enigme-unlocked-content" id="unlockedContent">
+                        <!-- Le contenu sera injecté dynamiquement via JavaScript -->
+                    </div>
+                    
+                    <!-- Container pour les fichiers bonus (chargés depuis episodes.json) -->
+                    <div id="bonusFilesContainer" class="bonus-section" style="display: none;">
+                        <!-- Les fichiers bonus seront injectés ici automatiquement -->
+                    </div>
+                    
+                    <div class="text-center" style="margin: 2rem 0;">
+                        <button class="btn" id="backToFoldersBtn" type="button">
+                            RETOUR AUX DOSSIERS
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <a href="#" class="back-btn back-to-menu">Retour au menu</a>
+        
+        <footer class="terminal-footer">
+            <div class="status">
+                <div class="status-dot" aria-hidden="true"></div>
+                <span>Connexion sécurisée</span>
+            </div>
+            <div class="version">v1.5.20</div>
+        </footer>
+    </article>
+    
+    <!-- 
+    ============================================
+    PAGE ÉPISODES
+    ============================================
+    -->
+    <article class="terminal-frame content-page" id="episodesPage">
+        <header class="terminal-header">
+            <div class="terminal-title">ELLI-PSE://terminal_access/episodes</div>
+            <div class="terminal-controls" aria-hidden="true">
+                <div class="terminal-control control-red"></div>
+                <div class="terminal-control control-yellow"></div>
+                <div class="terminal-control control-green"></div>
+            </div>
+        </header>
+        
+        <h1 class="content-title">ÉPISODES</h1>
+        <p class="subtitle">Le premier épisode sera diffusé le dimanche 25 janvier 2026 à 15h20.<br>Les suivants arriveront chaque dimanche à la même heure...</p>
+        
+        <!-- Grille des épisodes générée dynamiquement -->
+        <section class="content-section">
+            <div class="episodes-grid" id="episodesGrid" role="list" aria-label="Liste des épisodes">
+                <!-- Les épisodes seront générés dynamiquement via JavaScript -->
+            </div>
+        </section>
+        
+        <!-- Planning des énigmes avec boutons de résolution -->
+        <section class="content-section">
+            <div class="mission-section">
+                <h2 class="mission-title">
+                    <i class="fas fa-key" aria-hidden="true"></i> 
+                    Planning des Énigmes
+                </h2>
+                <ul class="episodes-list" id="episodesList" role="list">
+                    <li class="episode-item" data-episode="1">
+                        <div class="episode-info">
+                            <span class="episode-label">Épisode 1</span>
+                            <span class="episode-date">25 janvier 2026 – 15h20</span>
+                        </div>
+                        <button class="enigme-resolve-btn locked" id="resolveBtn-1" type="button" aria-label="Résoudre l'énigme de l'épisode 1">
+                            <i class="fas fa-lock" aria-hidden="true"></i> Résoudre l'énigme
+                        </button>
+                    </li>
+                    <li class="episode-item" data-episode="2">
+                        <div class="episode-info">
+                            <span class="episode-label">Épisode 2</span>
+                            <span class="episode-date">Chaque dimanche – 15h20</span>
+                        </div>
+                        <button class="enigme-resolve-btn locked" id="resolveBtn-2" type="button" aria-label="Résoudre l'énigme de l'épisode 2">
+                            <i class="fas fa-lock" aria-hidden="true"></i> Résoudre l'énigme
+                        </button>
+                    </li>
+                    <li class="episode-item" data-episode="3">
+                        <div class="episode-info">
+                            <span class="episode-label">Épisode 3</span>
+                            <span class="episode-date">Chaque dimanche – 15h20</span>
+                        </div>
+                        <button class="enigme-resolve-btn locked" id="resolveBtn-3" type="button" aria-label="Résoudre l'énigme de l'épisode 3">
+                            <i class="fas fa-lock" aria-hidden="true"></i> Résoudre l'énigme
+                        </button>
+                    </li>
+                    <li class="episode-item" data-episode="4">
+                        <div class="episode-info">
+                            <span class="episode-label">Épisode 4</span>
+                            <span class="episode-date">Chaque dimanche – 15h20</span>
+                        </div>
+                        <button class="enigme-resolve-btn locked" id="resolveBtn-4" type="button" aria-label="Résoudre l'énigme de l'épisode 4">
+                            <i class="fas fa-lock" aria-hidden="true"></i> Résoudre l'énigme
+                        </button>
+                    </li>
+                    <li class="episode-item" data-episode="5">
+                        <div class="episode-info">
+                            <span class="episode-label">Épisode 5</span>
+                            <span class="episode-date">Chaque dimanche – 15h20</span>
+                        </div>
+                        <button class="enigme-resolve-btn locked" id="resolveBtn-5" type="button" aria-label="Résoudre l'énigme de l'épisode 5">
+                            <i class="fas fa-lock" aria-hidden="true"></i> Résoudre l'énigme
+                        </button>
+                    </li>
+                    <li class="episode-item" data-episode="6">
+                        <div class="episode-info">
+                            <span class="episode-label">Épisode 6</span>
+                            <span class="episode-date">Chaque dimanche – 15h20</span>
+                        </div>
+                        <button class="enigme-resolve-btn locked" id="resolveBtn-6" type="button" aria-label="Résoudre l'énigme de l'épisode 6">
+                            <i class="fas fa-lock" aria-hidden="true"></i> Résoudre l'énigme
+                        </button>
+                    </li>
+                    <li class="episode-item" data-episode="7">
+                        <div class="episode-info">
+                            <span class="episode-label">Épisode 7</span>
+                            <span class="episode-date">Chaque dimanche – 15h20</span>
+                        </div>
+                        <button class="enigme-resolve-btn locked" id="resolveBtn-7" type="button" aria-label="Résoudre l'énigme de l'épisode 7">
+                            <i class="fas fa-lock" aria-hidden="true"></i> Résoudre l'énigme
+                        </button>
+                    </li>
+                    <li class="episode-item" data-episode="8">
+                        <div class="episode-info">
+                            <span class="episode-label">Épisode 8</span>
+                            <span class="episode-date">Chaque dimanche – 15h20</span>
+                        </div>
+                        <button class="enigme-resolve-btn locked" id="resolveBtn-8" type="button" aria-label="Résoudre l'énigme de l'épisode 8">
+                            <i class="fas fa-lock" aria-hidden="true"></i> Résoudre l'énigme
+                        </button>
+                    </li>
+                    <li class="episode-item" data-episode="9">
+                        <div class="episode-info">
+                            <span class="episode-label">Épisode 9</span>
+                            <span class="episode-date">Chaque dimanche – 15h20</span>
+                        </div>
+                        <button class="enigme-resolve-btn locked" id="resolveBtn-9" type="button" aria-label="Résoudre l'énigme de l'épisode 9">
+                            <i class="fas fa-lock" aria-hidden="true"></i> Résoudre l'énigme
+                        </button>
+                    </li>
+                    <li class="episode-item" data-episode="10">
+                        <div class="episode-info">
+                            <span class="episode-label">Épisode 10</span>
+                            <span class="episode-date">Finale – 15h20</span>
+                        </div>
+                        <button class="enigme-resolve-btn locked" id="resolveBtn-10" type="button" aria-label="Résoudre l'énigme de l'épisode 10">
+                            <i class="fas fa-lock" aria-hidden="true"></i> Résoudre l'énigme
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        
+        <a href="#" class="back-btn back-to-menu">Retour au menu</a>
+        
+        <footer class="terminal-footer">
+            <div class="status">
+                <div class="status-dot" aria-hidden="true"></div>
+                <span>Connexion sécurisée</span>
+            </div>
+            <div class="version">v1.5.20</div>
+        </footer>
+    </article>
+
+    <!-- 
+    ============================================
+    NOTIFICATIONS ET OVERLAYS
+    ============================================
+    -->
+    
+    <!-- Notification de chargement -->
+    <div class="enigme-loading" id="enigmeLoading" role="status" aria-live="polite">
+        <div class="enigme-loading-text">Téléchargement de l'indice...</div>
+        <div class="enigme-loading-bar">
+            <div class="enigme-loading-progress" id="enigmeLoadingProgress"></div>
+        </div>
+    </div>
+    
+    <!-- Notification de succès/erreur -->
+    <div class="enigme-notification" id="enigmeNotification" role="alert" aria-live="assertive">
+        <div class="enigme-notification-icon">
+            <i class="fas fa-check-circle" id="enigmeNotificationIcon"></i>
+        </div>
+        <div class="enigme-notification-text" id="enigmeNotificationText">
+            Accès autorisé - indice déverrouillé.
+        </div>
+    </div>
+    
+    <!-- Notification de téléchargement -->
+    <div class="download-notification" id="downloadNotification" role="alert" aria-live="polite">
+        <div class="download-notification-icon" aria-hidden="true">
+            <i class="fas fa-download"></i>
+        </div>
+        <div class="download-notification-text" id="downloadNotificationText">
+            Fichier téléchargé avec succès !
+        </div>
+        <div class="download-notification-subtitle" id="downloadNotificationSubtitle">
+            Le fichier a été ajouté à vos téléchargements.
+        </div>
+    </div>
+    
+    <!-- Overlay d'empreinte digitale (pour animations futures) -->
+    <div class="fingerprint-overlay" id="fingerprintOverlay" aria-hidden="true">
+        <div class="fingerprint-container">
+            <div class="fingerprint-icon">
+                <i class="fas fa-fingerprint"></i>
+            </div>
+            <div class="fingerprint-scan"></div>
+        </div>
+    </div>
+    
+    <!-- Effets visuels de fond -->
+    <div class="glitch-effect-bg" aria-hidden="true"></div>
+    <div class="distortion" id="distortion" aria-hidden="true"></div>
+
+    <!-- Script principal -->
+    <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+{
+  "episodes": [
+    {
+      "id": 1,
+      "password": "Le vrai fichier est ailleurs",
+      "title": "ÉPISODE 1 — Prisonnier Amnésique",
+      "hint": "Dans le sous-sol, un tag discret se révèle sur le mur...",
+      "letter": "E",
+      "letterPosition": 1,
+      "files": []
+    },
+    {
+      "id": 2,
+      "password": "AL920315",
+      "title": "ÉPISODE 2 — Mémoires Parasites",
+      "hint": "Sur la fiche personnelle d'Alex, un code énigmatique est apparu...",
+      "letter": "L",
+      "letterPosition": 2,
+      "files": []
+    },
+    {
+      "id": 3,
+      "password": "Homework got your head in a whirl?",
+      "title": "ÉPISODE 3 — Boucle Blanche",
+      "hint": "Sur le T-shirt d'Alex, une étrange question attire l'attention...",
+      "letter": "L",
+      "letterPosition": 3,
+      "files": []
+    },
+    {
+      "id": 4,
+      "password": "Attention, le danger approche rapidement",
+      "title": "ÉPISODE 4 — Le Signal",
+      "hint": "Parmi les documents, un avertissement inquiétant surgit...",
+      "letter": "I",
+      "letterPosition": 4,
+      "files": []
+    },
+    {
+      "id": 5,
+      "password": "4.7-Pourpre",
+      "title": "ÉPISODE 5 — Les Fantômes d'Élise",
+      "hint": "Une référence intrigante : 4.7 – Pourpre...",
+      "letter": "P",
+      "letterPosition": 5,
+      "files": []
+    },
+    {
+      "id": 6,
+      "password": "MOSAÏQUE",
+      "title": "ÉPISODE 6 — Le Réveil du Plan",
+      "hint": "Derrière cette suite anodine, le mot MOSAÏQUE s'est révélé...",
+      "letter": "S",
+      "letterPosition": 6,
+      "files": []
+    },
+    {
+      "id": 7,
+      "password": "SALTCRYPTO_EVA94",
+      "title": "ÉPISODE 7 — Le Vol Silencieux",
+      "hint": "Une clé cryptographique étrange : SALTCRYPTO_EVA94...",
+      "letter": "E",
+      "letterPosition": 7,
+      "files": []
+    },
+    {
+      "id": 8,
+      "password": "05.22.01.94",
+      "title": "ÉPISODE 8 — L'Activation",
+      "hint": "Sur une photo d'Élise, un détail frappe l'œil : 05.22.01.94...",
+      "letter": "2",
+      "letterPosition": 8,
+      "files": []
+    },
+    {
+      "id": 9,
+      "password": "Lot 47",
+      "title": "ÉPISODE 9 — La Fausse Libération",
+      "hint": "Une référence intrigante surgit : Lot 47...",
+      "letter": null,
+      "letterPosition": null,
+      "files": []
+    },
+    {
+      "id": 10,
+      "password": "ELLIPSE2",
+      "title": "ÉPISODE 10 — Le Révélateur",
+      "hint": "Toutes les lettres s'assemblent enfin : E-L-L-I-P-S-E-2",
+      "letter": null,
+      "letterPosition": null,
+      "files": []
+    }
+  ]
+}
+
+
+
+
