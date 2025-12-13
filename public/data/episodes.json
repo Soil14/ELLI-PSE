@@ -1,13 +1,14 @@
 {
   "episodes": [
     {
-      "id": 1,
-      "password": "Le vrai fichier est ailleurs",
-      "title": "ÉPISODE 1 — Prisonnier Amnésique",
-      "hint": "Dans le sous-sol, un tag discret se révèle sur le mur...",
-      "letter": "E",
-      "letterPosition": 1,
-      "files": []
+  "id": 1,
+  "title": "ÉPISODE 1 — Prisonnier Amnésique",
+  "password": "Le vrai fichier est ailleurs",
+  "hint": "Dans le sous-sol, un tag discret se révèle sur le mur...",
+  "letter": "E",
+  "letterPosition": 1,
+  "youtube": "https://www.youtube.com/watch?v=xGK4g0FDU9U",
+  "files": []
     },
     {
       "id": 2,
