@@ -1109,7 +1109,44 @@ function initializeEvents() {
 }
 
 /* ==========================================================================
-   12. INITIALISATION
+   12. TOGGLE PASSWORD VISIBILITY
+   ========================================================================== */
+
+/**
+ * Initialise les boutons de toggle visibilité des mots de passe
+ */
+function initializePasswordToggle() {
+    const toggleButtons = $$('.toggle-password');
+    
+    toggleButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const container = this.parentElement;
+            const input = container.querySelector('input');
+            const icon = this.querySelector('i');
+            
+            if (input) {
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    if (icon) {
+                        icon.classList.remove('fa-eye');
+                        icon.classList.add('fa-eye-slash');
+                    }
+                    this.setAttribute('aria-label', 'Masquer le mot de passe');
+                } else {
+                    input.type = 'password';
+                    if (icon) {
+                        icon.classList.remove('fa-eye-slash');
+                        icon.classList.add('fa-eye');
+                    }
+                    this.setAttribute('aria-label', 'Afficher le mot de passe');
+                }
+            }
+        });
+    });
+}
+
+/* ==========================================================================
+   13. INITIALISATION
    ========================================================================== */
 
 /**
@@ -1131,6 +1168,7 @@ async function init() {
     initializeEpisodesPage();
     initializeEnigmes();
     initializeResolveButtons();
+    initializePasswordToggle();
     updateProgress();
     updateResolveButtons();
     

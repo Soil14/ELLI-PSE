@@ -699,6 +699,58 @@ body::after {
     text-shadow: none;
 }
 
+/* ==========================================================================
+   TOGGLE PASSWORD VISIBILITY
+   ========================================================================== */
+.password-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.password-container .modal-input,
+.password-container .enigme-password-input {
+    width: 100%;
+    padding-right: 50px;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    padding: 0.5rem;
+    transition: all var(--transition-fast);
+    z-index: 2;
+}
+
+.toggle-password:hover {
+    color: var(--accent-cyan);
+    text-shadow: 0 0 8px var(--accent-cyan);
+}
+
+.toggle-password:focus {
+    outline: none;
+    color: var(--accent-cyan);
+}
+
+.toggle-password i {
+    pointer-events: none;
+}
+
+/* Container pour énigme - centré */
+.password-container-enigme {
+    display: inline-flex;
+    justify-content: center;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
 .modal-buttons {
     display: flex;
     justify-content: center;
@@ -2695,7 +2747,19 @@ body::after {
     .modal-input {
         font-size: 1rem;
         padding: 0.8rem;
+        padding-right: 45px;
         letter-spacing: 2px;
+    }
+    
+    /* Toggle password responsive */
+    .toggle-password {
+        right: 8px;
+        font-size: 1rem;
+        padding: 0.4rem;
+    }
+    
+    .password-container-enigme {
+        max-width: 100%;
     }
     
     .modal-buttons {

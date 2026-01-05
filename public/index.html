@@ -96,13 +96,18 @@
         <div class="modal-content">
             <h2 class="modal-title" id="modalTitle">Entrez le code d'accès</h2>
             <label for="accessCode" class="visually-hidden">Code d'accès</label>
-            <input type="text" 
-                   class="modal-input" 
-                   id="accessCode" 
-                   placeholder="CODE D'ACCÈS" 
-                   maxlength="12"
-                   autocomplete="off"
-                   aria-describedby="errorMessage">
+            <div class="password-container">
+                <input type="password" 
+                       class="modal-input" 
+                       id="accessCode" 
+                       placeholder="CODE D'ACCÈS" 
+                       maxlength="12"
+                       autocomplete="off"
+                       aria-describedby="errorMessage">
+                <button type="button" class="toggle-password" aria-label="Afficher/masquer le code">
+                    <i class="fas fa-eye" aria-hidden="true"></i>
+                </button>
+            </div>
             <div class="error-message" id="errorMessage" role="alert" aria-live="assertive">
                 ⚠ Accès refusé
             </div>
@@ -565,12 +570,17 @@
                     
                     <div class="text-center" style="margin: 2rem 0;">
                         <label for="enigmePasswordInput" class="visually-hidden">Mot de passe de l'énigme</label>
-                        <input type="password" 
-                               class="enigme-password-input" 
-                               id="enigmePasswordInput" 
-                               placeholder="MOT DE PASSE" 
-                               maxlength="50"
-                               autocomplete="off">
+                        <div class="password-container password-container-enigme">
+                            <input type="password" 
+                                   class="enigme-password-input" 
+                                   id="enigmePasswordInput" 
+                                   placeholder="MOT DE PASSE" 
+                                   maxlength="50"
+                                   autocomplete="off">
+                            <button type="button" class="toggle-password" aria-label="Afficher/masquer le mot de passe">
+                                <i class="fas fa-eye" aria-hidden="true"></i>
+                            </button>
+                        </div>
                         <div style="margin-top: 1rem;">
                             <button class="btn enigme-submit-btn" id="enigmeSubmitBtn" type="button">
                                 DÉVERROUILLER
