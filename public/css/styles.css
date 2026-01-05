@@ -2465,6 +2465,728 @@ body::after {
     }
 }
 
+/* ==========================================================================
+   17. MESSAGE FIN DE COMPTE À REBOURS
+   ========================================================================== */
+.countdown-finished {
+    flex-direction: column;
+    gap: 0;
+}
+
+.countdown-message {
+    text-align: center;
+    padding: 2rem;
+    animation: fadeIn 1s ease, pulseCyan 3s infinite;
+}
+
+.countdown-message-icon {
+    font-size: 4rem;
+    color: var(--accent-cyan);
+    margin-bottom: 1rem;
+    text-shadow: 0 0 20px var(--accent-cyan), 0 0 40px var(--accent-cyan);
+    animation: pulse 2s infinite;
+}
+
+.countdown-message-text {
+    font-size: 2rem;
+    color: var(--accent-cyan);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 15px var(--accent-cyan);
+    font-weight: 600;
+}
+
+.countdown-message-subtext {
+    font-size: 1.3rem;
+    color: var(--accent-yellow);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px var(--accent-yellow);
+    animation: blink 2s infinite;
+}
+
+/* ==========================================================================
+   18. MEDIA QUERIES RESPONSIVE AMÉLIORÉES
+   ========================================================================== */
+
+/* Tablettes et petits écrans */
+@media (max-width: 1024px) {
+    .terminal-frame {
+        max-width: 95%;
+        margin: 1rem;
+    }
+    
+    .enigme-folders-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .episodes-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
+
+/* Smartphones en mode paysage et tablettes */
+@media (max-width: 768px) {
+    /* Page d'accueil */
+    .container {
+        padding: 1.5rem;
+        max-width: 100%;
+    }
+    
+    .title {
+        font-size: 2.5rem;
+        letter-spacing: 2px;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    /* Compte à rebours responsive */
+    .countdown {
+        gap: 0.8rem;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .countdown-item {
+        flex: 0 0 auto;
+    }
+    
+    .countdown-value {
+        font-size: 1.8rem;
+        min-width: 55px;
+        padding: 0.4rem 0.6rem;
+    }
+    
+    .countdown-label {
+        font-size: 0.75rem;
+    }
+    
+    .countdown-message-text {
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+    }
+    
+    .countdown-message-subtext {
+        font-size: 1rem;
+    }
+    
+    .countdown-message-icon {
+        font-size: 3rem;
+    }
+    
+    /* Boutons responsive */
+    .btn {
+        padding: 0.8rem 1.2rem;
+        font-size: 1rem;
+        margin: 0.5rem;
+        width: calc(100% - 1rem);
+        max-width: 300px;
+    }
+    
+    /* Terminal frame */
+    .terminal-frame {
+        padding: 1rem;
+        margin: 0.5rem;
+        width: calc(100% - 1rem);
+        border-radius: 6px;
+    }
+    
+    .terminal-header {
+        margin: -1rem -1rem 1.5rem -1rem;
+        padding: 0.8rem;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    .terminal-title {
+        font-size: 0.85rem;
+        word-break: break-all;
+        flex: 1;
+        min-width: 0;
+    }
+    
+    .terminal-footer {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+    }
+    
+    /* Menu responsive */
+    .menu-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .menu-item {
+        min-height: 150px;
+        padding: 1.5rem;
+    }
+    
+    .menu-icon {
+        font-size: 2.5rem;
+    }
+    
+    .menu-item-title {
+        font-size: 1.2rem;
+    }
+    
+    .menu-desc {
+        font-size: 0.85rem;
+        max-width: 100%;
+    }
+    
+    .menu-title {
+        font-size: 2rem;
+        letter-spacing: 2px;
+    }
+    
+    .menu-subtitle {
+        font-size: 1rem;
+        white-space: normal;
+        animation: none;
+        margin-bottom: 2rem;
+    }
+    
+    /* Titre des pages */
+    .content-title {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Modal responsive */
+    .modal-content {
+        width: 95%;
+        max-width: 400px;
+        padding: 1.5rem;
+        margin: 1rem;
+    }
+    
+    .modal-title {
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+    }
+    
+    .modal-input {
+        font-size: 1rem;
+        padding: 0.8rem;
+        letter-spacing: 2px;
+    }
+    
+    .modal-buttons {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .modal-btn {
+        width: 100%;
+        margin: 0;
+    }
+    
+    /* Énigmes responsive */
+    .enigme-folders-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .enigme-folder {
+        min-height: 120px;
+        padding: 1rem;
+    }
+    
+    .folder-icon {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .folder-title {
+        font-size: 1rem;
+    }
+    
+    .folder-status {
+        font-size: 0.75rem;
+    }
+    
+    /* Progression responsive */
+    .letters-discovered {
+        gap: 0.5rem;
+    }
+    
+    .letter-slot {
+        width: 40px;
+        height: 40px;
+        font-size: 1.3rem;
+    }
+    
+    .progress-bar {
+        height: 25px;
+    }
+    
+    .progress-text {
+        font-size: 0.8rem;
+    }
+    
+    .final-word {
+        padding: 1.5rem;
+    }
+    
+    .final-word-text {
+        font-size: 2.5rem;
+        letter-spacing: 4px;
+    }
+    
+    .final-word-title,
+    .final-word-subtitle {
+        font-size: 1rem;
+    }
+    
+    /* FAQ responsive */
+    .faq-item {
+        padding-left: 1rem;
+    }
+    
+    .faq-question {
+        font-size: 1.1rem;
+        flex-wrap: wrap;
+    }
+    
+    .faq-answer {
+        padding-left: 0;
+        font-size: 0.95rem;
+    }
+    
+    /* Section mission */
+    .mission-section {
+        padding: 1rem;
+        margin: 1.5rem 0;
+    }
+    
+    .mission-title {
+        font-size: 1.2rem;
+        flex-wrap: wrap;
+    }
+    
+    /* Social links */
+    .social-section {
+        gap: 0.8rem;
+    }
+    
+    .social-link {
+        font-size: 0.9rem;
+        padding: 0.5rem 0.8rem;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    /* Épisodes responsive */
+    .episodes-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .episode-card {
+        padding: 1.5rem;
+    }
+    
+    .episode-header {
+        margin-bottom: 1rem;
+    }
+    
+    .episode-number {
+        font-size: 1.3rem;
+    }
+    
+    .episode-status {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.5rem;
+    }
+    
+    .episode-release-date {
+        font-size: 0.9rem;
+    }
+    
+    .episode-actions {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .episode-btn {
+        width: 100%;
+        padding: 0.8rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Liste épisodes responsive */
+    .episode-item {
+        flex-direction: column;
+        gap: 0.8rem;
+        text-align: center;
+        padding: 1rem;
+    }
+    
+    .episode-info {
+        align-items: center;
+    }
+    
+    .episode-label {
+        font-size: 1.1rem;
+    }
+    
+    .episode-date {
+        font-size: 0.85rem;
+    }
+    
+    .enigme-resolve-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    /* Notifications responsive */
+    .enigme-loading,
+    .enigme-notification,
+    .download-notification {
+        width: 90%;
+        max-width: 350px;
+        min-width: auto;
+        padding: 1.5rem;
+    }
+    
+    .enigme-notification-icon,
+    .download-notification-icon {
+        font-size: 2.5rem;
+    }
+    
+    .enigme-notification-text,
+    .download-notification-text {
+        font-size: 1rem;
+    }
+    
+    /* Fingerprint responsive */
+    .fingerprint-container {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .fingerprint-icon {
+        font-size: 5rem;
+    }
+    
+    /* Section bonus responsive */
+    .bonus-section {
+        padding: 1rem;
+    }
+    
+    .bonus-section h3 {
+        font-size: 1rem;
+    }
+    
+    .bonus-files-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Authentification énigmes responsive */
+    .enigme-password-input {
+        width: 100%;
+        max-width: 100%;
+        font-size: 1rem;
+        padding: 0.8rem;
+        letter-spacing: 2px;
+    }
+    
+    .enigme-submit-btn,
+    .enigme-cancel-btn {
+        width: 100%;
+        margin: 0.3rem 0;
+    }
+    
+    .enigme-unlocked-content {
+        padding: 1rem;
+    }
+    
+    .enigme-unlocked-content h3 {
+        font-size: 1.1rem;
+        word-break: break-word;
+    }
+}
+
+/* Petits smartphones */
+@media (max-width: 480px) {
+    /* Page d'accueil */
+    .container {
+        padding: 1rem;
+    }
+    
+    .title {
+        font-size: 2rem;
+        letter-spacing: 1px;
+    }
+    
+    .subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Compte à rebours très petit écran */
+    .countdown {
+        gap: 0.5rem;
+    }
+    
+    .countdown-value {
+        font-size: 1.5rem;
+        min-width: 45px;
+        padding: 0.3rem 0.5rem;
+    }
+    
+    .countdown-label {
+        font-size: 0.65rem;
+    }
+    
+    .countdown-message {
+        padding: 1rem;
+    }
+    
+    .countdown-message-icon {
+        font-size: 2.5rem;
+    }
+    
+    .countdown-message-text {
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+    }
+    
+    .countdown-message-subtext {
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+    }
+    
+    /* Boutons petits écrans */
+    .btn {
+        padding: 0.7rem 1rem;
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+    }
+    
+    /* Menu titre */
+    .menu-title {
+        font-size: 1.8rem;
+    }
+    
+    .menu-subtitle {
+        font-size: 0.9rem;
+    }
+    
+    /* Énigmes grille 1 colonne */
+    .enigme-folders-grid {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+    
+    .enigme-folder {
+        min-height: 100px;
+        padding: 0.8rem;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 1rem;
+    }
+    
+    .folder-icon {
+        font-size: 1.8rem;
+        margin-bottom: 0;
+    }
+    
+    .folder-title {
+        font-size: 0.95rem;
+    }
+    
+    .folder-status {
+        font-size: 0.7rem;
+    }
+    
+    /* Progression petits écrans */
+    .letter-slot {
+        width: 35px;
+        height: 35px;
+        font-size: 1.1rem;
+    }
+    
+    .progress-bar {
+        height: 22px;
+    }
+    
+    .progress-text {
+        font-size: 0.75rem;
+    }
+    
+    .final-word-text {
+        font-size: 2rem;
+        letter-spacing: 2px;
+    }
+    
+    /* Modal petits écrans */
+    .modal-content {
+        padding: 1rem;
+    }
+    
+    .modal-title {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .modal-input {
+        font-size: 0.95rem;
+        padding: 0.7rem;
+        letter-spacing: 1px;
+        margin-bottom: 1rem;
+    }
+    
+    /* Terminal frame */
+    .terminal-frame {
+        border-radius: 4px;
+    }
+    
+    .terminal-title {
+        font-size: 0.7rem;
+    }
+    
+    .terminal-controls {
+        display: none;
+    }
+    
+    /* Contenu pages */
+    .content-title {
+        font-size: 1.3rem;
+    }
+    
+    .about-text {
+        font-size: 0.95rem;
+    }
+    
+    /* Back button */
+    .back-btn {
+        font-size: 0.85rem;
+        padding: 0.6rem 1rem;
+    }
+    
+    /* Notifications */
+    .enigme-loading,
+    .enigme-notification,
+    .download-notification {
+        width: 95%;
+        padding: 1rem;
+    }
+    
+    /* Fingerprint */
+    .fingerprint-container {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .fingerprint-icon {
+        font-size: 4rem;
+    }
+}
+
+/* Très petits écrans (iPhone SE, etc.) */
+@media (max-width: 360px) {
+    .title {
+        font-size: 1.7rem;
+    }
+    
+    .countdown-value {
+        font-size: 1.3rem;
+        min-width: 40px;
+        padding: 0.25rem 0.4rem;
+    }
+    
+    .countdown-label {
+        font-size: 0.6rem;
+    }
+    
+    .letter-slot {
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+    }
+    
+    .menu-title {
+        font-size: 1.5rem;
+    }
+    
+    .menu-item {
+        min-height: 130px;
+    }
+    
+    .menu-icon {
+        font-size: 2rem;
+    }
+    
+    .menu-item-title {
+        font-size: 1rem;
+    }
+    
+    .btn {
+        font-size: 0.85rem;
+        padding: 0.6rem 0.8rem;
+    }
+}
+
+/* Orientation paysage sur mobile */
+@media (max-height: 500px) and (orientation: landscape) {
+    .container {
+        padding: 0.5rem 1rem;
+    }
+    
+    .title {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .subtitle {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+    }
+    
+    .countdown {
+        margin-bottom: 1rem;
+    }
+    
+    .countdown-value {
+        font-size: 1.5rem;
+        min-width: 50px;
+    }
+    
+    .countdown-message {
+        padding: 0.5rem;
+    }
+    
+    .countdown-message-icon {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .countdown-message-text {
+        font-size: 1.2rem;
+    }
+    
+    .countdown-message-subtext {
+        font-size: 0.9rem;
+    }
+    
+    .btn {
+        padding: 0.6rem 1rem;
+        margin: 0.3rem;
+    }
+    
+    .modal-content {
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+}
+
 /* Préférence pour les mouvements réduits */
 @media (prefers-reduced-motion: reduce) {
     *,

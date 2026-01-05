@@ -296,8 +296,10 @@ function initializeCountdown() {
         const hoursEl = $('hours');
         const minutesEl = $('minutes');
         const secondsEl = $('seconds');
+        const countdownContainer = document.querySelector('.countdown');
         
         if (distance > 0) {
+            // Compte à rebours actif
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -308,10 +310,22 @@ function initializeCountdown() {
             if (minutesEl) minutesEl.textContent = String(minutes).padStart(2, '0');
             if (secondsEl) secondsEl.textContent = String(seconds).padStart(2, '0');
         } else {
-            if (daysEl) daysEl.textContent = '000';
-            if (hoursEl) hoursEl.textContent = '00';
-            if (minutesEl) minutesEl.textContent = '00';
-            if (secondsEl) secondsEl.textContent = '00';
+            // Compte à rebours terminé - afficher le message mystérieux
+            if (countdownContainer && !countdownContainer.classList.contains('countdown-finished')) {
+                countdownContainer.classList.add('countdown-finished');
+                countdownContainer.innerHTML = `
+                    <div class="countdown-message">
+                        <div class="countdown-message-icon"><i class="fas fa-signal"></i></div>
+                        <div class="countdown-message-text">Le signal est actif.</div>
+                        <div class="countdown-message-subtext">Débloque l'expérience.</div>
+                    </div>
+                `;
+                // Arrêter l'intervalle car le compte à rebours est terminé
+                if (AppState.countdownInterval) {
+                    clearInterval(AppState.countdownInterval);
+                    AppState.countdownInterval = null;
+                }
+            }
         }
     }
     
