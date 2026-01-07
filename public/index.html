@@ -136,8 +136,9 @@
         <h1 class="menu-title">MENU ELLI-PSE</h1>
         <p class="menu-subtitle">Explore les failles, découvre la vérité...</p>
         
-        <div class="menu-grid" role="list">
-            <div class="menu-item" 
+        <div class="menu-grid menu-grid-triangle" role="list">
+            <!-- ÉNIGMES - Position centrale en haut -->
+            <div class="menu-item menu-item-primary" 
                  data-target="enigmes" 
                  role="listitem" 
                  tabindex="0"
@@ -147,7 +148,8 @@
                 <p class="menu-desc">Résous les puzzles pour avancer dans l'histoire</p>
             </div>
             
-            <div class="menu-item" 
+            <!-- ÉPISODES - En bas à gauche -->
+            <div class="menu-item menu-item-secondary" 
                  data-target="episodes" 
                  role="listitem" 
                  tabindex="0"
@@ -157,7 +159,8 @@
                 <p class="menu-desc">Découvre les chapitres de l'histoire</p>
             </div>
             
-            <div class="menu-item" 
+            <!-- FAQ - En bas à droite -->
+            <div class="menu-item menu-item-secondary" 
                  data-target="faq" 
                  role="listitem" 
                  tabindex="0"
@@ -166,19 +169,18 @@
                 <h2 class="menu-item-title">FAQ</h2>
                 <p class="menu-desc">Toutes les réponses à tes questions</p>
             </div>
-            
-            <div class="menu-item" 
-                 data-target="apropos" 
-                 role="listitem" 
-                 tabindex="0"
-                 aria-label="Accéder à la page À propos">
-                <div class="menu-icon" aria-hidden="true"><i class="fas fa-info-circle"></i></div>
-                <h2 class="menu-item-title">À PROPOS DE NOUS</h2>
-                <p class="menu-desc">Qui sommes-nous et quelle est notre mission</p>
-            </div>
         </div>
         
         <a href="#" class="back-btn" id="homeBtn">Retour à l'accueil</a>
+        
+        <!-- Footer discret -->
+        <nav class="menu-footer-links" aria-label="Liens secondaires">
+            <a href="#" class="footer-link" data-target="informations">Informations</a>
+            <span class="footer-separator">·</span>
+            <a href="#" class="footer-link" data-target="credits">Crédits</a>
+            <span class="footer-separator">·</span>
+            <a href="#" class="footer-link" data-target="contact">Contact</a>
+        </nav>
         
         <footer class="terminal-footer">
             <div class="status">
@@ -449,6 +451,120 @@
             </nav>
             
             <p class="copyright">© 2025 – La Grande Ourse Prod</p>
+        </section>
+        
+        <a href="#" class="back-btn back-to-menu">Retour au menu</a>
+        
+        <footer class="terminal-footer">
+            <div class="status">
+                <div class="status-dot" aria-hidden="true"></div>
+                <span>Connexion sécurisée</span>
+            </div>
+            <div class="version">v1.5.20</div>
+        </footer>
+    </article>
+    
+    <!-- 
+    ============================================
+    PAGE INFORMATIONS
+    ============================================
+    -->
+    <article class="terminal-frame content-page" id="informationsPage">
+        <header class="terminal-header">
+            <div class="terminal-title">ELLI-PSE://terminal_access/info</div>
+            <div class="terminal-controls" aria-hidden="true">
+                <div class="terminal-control control-red"></div>
+                <div class="terminal-control control-yellow"></div>
+                <div class="terminal-control control-green"></div>
+            </div>
+        </header>
+        
+        <h1 class="content-title">Informations</h1>
+        
+        <section class="content-section">
+            <p class="about-text">ELLI-PSE est une mini-série interactive composée de 10 épisodes.</p>
+            
+            <p class="about-text">Chaque épisode contient des éléments dissimulés : images, sons, textes ou codes.<br>En les identifiant, tu peux accéder à du contenu supplémentaire et faire progresser l'expérience.</p>
+            
+            <p class="about-text">Aucun compte n'est requis.<br>L'expérience est gratuite.<br>Certaines informations ne se révèlent qu'avec le temps.</p>
+        </section>
+        
+        <a href="#" class="back-btn back-to-menu">Retour au menu</a>
+        
+        <footer class="terminal-footer">
+            <div class="status">
+                <div class="status-dot" aria-hidden="true"></div>
+                <span>Connexion sécurisée</span>
+            </div>
+            <div class="version">v1.5.20</div>
+        </footer>
+    </article>
+    
+    <!-- 
+    ============================================
+    PAGE CRÉDITS
+    ============================================
+    -->
+    <article class="terminal-frame content-page" id="creditsPage">
+        <header class="terminal-header">
+            <div class="terminal-title">ELLI-PSE://terminal_access/credits</div>
+            <div class="terminal-controls" aria-hidden="true">
+                <div class="terminal-control control-red"></div>
+                <div class="terminal-control control-yellow"></div>
+                <div class="terminal-control control-green"></div>
+            </div>
+        </header>
+        
+        <h1 class="content-title">Crédits</h1>
+        
+        <section class="content-section">
+            <p class="about-text">ELLI-PSE est un projet de création indépendant.</p>
+            
+            <div class="credits-list">
+                <p class="credits-item"><span class="credits-label">Produit par</span> La Grande Ourse</p>
+                <p class="credits-item"><span class="credits-label">Création & réalisation</span> La Grande Ourse</p>
+                <p class="credits-item"><span class="credits-label">Univers narratif</span> ELLI-PSE</p>
+            </div>
+            
+            <p class="copyright">© 2025 – La Grande Ourse</p>
+        </section>
+        
+        <a href="#" class="back-btn back-to-menu">Retour au menu</a>
+        
+        <footer class="terminal-footer">
+            <div class="status">
+                <div class="status-dot" aria-hidden="true"></div>
+                <span>Connexion sécurisée</span>
+            </div>
+            <div class="version">v1.5.20</div>
+        </footer>
+    </article>
+    
+    <!-- 
+    ============================================
+    PAGE CONTACT
+    ============================================
+    -->
+    <article class="terminal-frame content-page" id="contactPage">
+        <header class="terminal-header">
+            <div class="terminal-title">ELLI-PSE://terminal_access/contact</div>
+            <div class="terminal-controls" aria-hidden="true">
+                <div class="terminal-control control-red"></div>
+                <div class="terminal-control control-yellow"></div>
+                <div class="terminal-control control-green"></div>
+            </div>
+        </header>
+        
+        <h1 class="content-title">Contact</h1>
+        
+        <section class="content-section">
+            <p class="about-text">Pour toute demande professionnelle ou information générale :</p>
+            
+            <p class="contact-email">
+                <a href="mailto:grandeourseprod@gmail.com" class="social-link">grandeourseprod@gmail.com</a>
+            </p>
+            
+            <p class="contact-note">Certaines réponses ne peuvent pas être données immédiatement.</p>
         </section>
         
         <a href="#" class="back-btn back-to-menu">Retour au menu</a>

@@ -229,7 +229,10 @@ function showPage(pageId) {
         'faq': () => { const p = $('faqPage'); if (p) p.style.display = 'block'; },
         'apropos': () => { const p = $('aproposPage'); if (p) p.style.display = 'block'; },
         'enigmes': () => { const p = $('enigmesPage'); if (p) p.style.display = 'block'; },
-        'episodes': () => { const p = $('episodesPage'); if (p) p.style.display = 'block'; }
+        'episodes': () => { const p = $('episodesPage'); if (p) p.style.display = 'block'; },
+        'informations': () => { const p = $('informationsPage'); if (p) p.style.display = 'block'; },
+        'credits': () => { const p = $('creditsPage'); if (p) p.style.display = 'block'; },
+        'contact': () => { const p = $('contactPage'); if (p) p.style.display = 'block'; }
     };
     
     if (pageMap[pageId]) {
@@ -276,6 +279,15 @@ function initializeNavigation() {
             showPage('home');
         });
     }
+    
+    // Liens du footer (Informations, Crédits, Contact)
+    $$('.footer-link').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = this.getAttribute('data-target');
+            if (target) showPage(target);
+        });
+    });
 }
 
 /* ==========================================================================

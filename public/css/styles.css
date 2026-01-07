@@ -614,6 +614,88 @@ body::after {
 }
 
 /* ==========================================================================
+   FOOTER DISCRET DU MENU
+   ========================================================================== */
+.menu-footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.8rem;
+    margin: 1.5rem 0;
+    flex-wrap: wrap;
+}
+
+.footer-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    transition: opacity var(--transition-fast);
+    opacity: 0.7;
+}
+
+.footer-link:hover {
+    opacity: 1;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.footer-separator {
+    color: var(--text-muted);
+    opacity: 0.5;
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   PAGES INFORMATIONS, CRÉDITS, CONTACT
+   ========================================================================== */
+.credits-list {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    border-left: 2px solid var(--accent-cyan);
+    background: rgba(167, 243, 208, 0.03);
+}
+
+.credits-item {
+    margin-bottom: 0.8rem;
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+
+.credits-item:last-child {
+    margin-bottom: 0;
+}
+
+.credits-label {
+    color: var(--text-muted);
+    display: inline-block;
+    min-width: 180px;
+}
+
+.credits-label::after {
+    content: " :";
+}
+
+.contact-email {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.contact-email .social-link {
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
+}
+
+.contact-note {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    opacity: 0.7;
+    font-style: italic;
+    margin-top: 2rem;
+}
+
+/* ==========================================================================
    8. MODAL
    ========================================================================== */
 .modal {
@@ -920,7 +1002,30 @@ body::after {
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     width: 100%;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
+}
+
+/* Grille triangulaire - 3 blocs */
+.menu-grid-triangle {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    gap: 2rem;
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto 2rem auto;
+}
+
+/* ÉNIGMES - En haut, centré, plus large */
+.menu-grid-triangle .menu-item-primary {
+    grid-column: 1 / -1;
+    max-width: 380px;
+    justify-self: center;
+}
+
+/* ÉPISODES et FAQ - En bas, côte à côte */
+.menu-grid-triangle .menu-item-secondary {
+    min-height: 180px;
 }
 
 .menu-item {
@@ -2711,9 +2816,23 @@ body::after {
         gap: 1rem;
     }
     
+    /* Grille triangulaire tablette */
+    .menu-grid-triangle {
+        max-width: 100%;
+        gap: 1.5rem;
+    }
+    
+    .menu-grid-triangle .menu-item-primary {
+        max-width: 100%;
+    }
+    
     .menu-item {
         min-height: 150px;
         padding: 1.5rem;
+    }
+    
+    .menu-grid-triangle .menu-item-secondary {
+        min-height: 140px;
     }
     
     .menu-icon {
@@ -2739,6 +2858,26 @@ body::after {
         white-space: normal;
         animation: none;
         margin-bottom: 2rem;
+    }
+    
+    /* Footer links responsive */
+    .menu-footer-links {
+        margin: 1rem 0;
+    }
+    
+    .footer-link {
+        font-size: 0.85rem;
+    }
+    
+    /* Pages crédits responsive */
+    .credits-label {
+        display: block;
+        min-width: auto;
+        margin-bottom: 0.3rem;
+    }
+    
+    .credits-label::after {
+        content: "";
     }
     
     /* Titre des pages */
@@ -3085,6 +3224,35 @@ body::after {
     
     .menu-subtitle {
         font-size: 0.9rem;
+    }
+    
+    /* Grille triangulaire mobile - colonne verticale */
+    .menu-grid-triangle {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .menu-grid-triangle .menu-item-primary {
+        grid-column: 1;
+        max-width: 100%;
+    }
+    
+    .menu-grid-triangle .menu-item-primary,
+    .menu-grid-triangle .menu-item-secondary {
+        min-height: 120px;
+    }
+    
+    /* Footer links mobile */
+    .menu-footer-links {
+        gap: 0.5rem;
+    }
+    
+    .footer-link {
+        font-size: 0.8rem;
+    }
+    
+    .footer-separator {
+        font-size: 0.8rem;
     }
     
     /* Énigmes grille 1 colonne */
