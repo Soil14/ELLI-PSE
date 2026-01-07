@@ -1049,12 +1049,29 @@ body::after {
     margin-bottom: 0.8rem;
     color: var(--text-primary);
     display: flex;
-    align-items: center;
+    align-items: flex-start;
+    line-height: 1.4;
 }
 
 .faq-question i {
     margin-right: 10px;
     color: var(--accent-cyan);
+}
+
+/* Icônes SVG FAQ - Style minimal et discret */
+.faq-icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    flex-shrink: 0;
+    opacity: 0.6;
+    color: var(--text-muted);
+    vertical-align: middle;
+    transition: opacity var(--transition-fast);
+}
+
+.faq-item:hover .faq-icon {
+    opacity: 0.75;
 }
 
 .faq-answer {
@@ -2836,7 +2853,13 @@ body::after {
     
     .faq-question {
         font-size: 1.1rem;
-        flex-wrap: wrap;
+    }
+    
+    .faq-icon {
+        width: 16px;
+        height: 16px;
+        margin-right: 8px;
+        margin-top: 2px;
     }
     
     .faq-answer {
