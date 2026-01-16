@@ -1,14 +1,14 @@
 {
   "episodes": [
     {
-  "id": 1,
-  "title": "ÉPISODE 1 — Prisonnier Amnésique",
-  "password": "Le vrai fichier est ailleurs",
-  "hint": "Dans le sous-sol, un tag discret se révèle sur le mur...",
-  "letter": "E",
-  "letterPosition": 1,
-  "youtube": "https://www.youtube.com/watch?v=xGK4g0FDU9U",
-  "files": []
+      "id": 1,
+      "title": "ÉPISODE 1 — Prisonnier Amnésique",
+      "password": "Le vrai fichier est ailleurs",
+      "hint": "Dans le sous-sol, un tag discret se révèle sur le mur...",
+      "letter": "E",
+      "letterPosition": 1,
+      "youtube": "https://youtu.be/JNn1nIZx4BY",
+      "files": []
     },
     {
       "id": 2,
@@ -17,6 +17,7 @@
       "hint": "Sur la fiche personnelle d'Alex, un code énigmatique est apparu...",
       "letter": "L",
       "letterPosition": 2,
+      "youtube": "https://youtu.be/zsoVkTu9Xb8",
       "files": []
     },
     {
