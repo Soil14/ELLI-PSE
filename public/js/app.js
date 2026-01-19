@@ -763,6 +763,31 @@ async function displayUnlockedContent(episodeId, epData) {
             await displayBonusFiles(episodeId, epData.files, bonusContainer);
         }
         
+        // Afficher la récompense vidéo si elle existe
+        if (epData.reward && epData.reward.type === 'video') {
+            const rewardHtml = `
+                <div class="reward-section">
+                    <h3 class="reward-title">
+                        <i class="fas fa-gift" aria-hidden="true"></i>
+                        Récompense débloquée : ${escapeHtml(epData.reward.title)}
+                    </h3>
+                    <p class="reward-description">${escapeHtml(epData.reward.description)}</p>
+                    <div class="reward-video-container">
+                        <video controls width="100%" height="auto" preload="metadata" class="reward-video">
+                            <source src="${epData.reward.url}" type="video/mp4">
+                            Votre navigateur ne supporte pas la vidéo.
+                        </video>
+                    </div>
+                </div>
+            `;
+            
+            if (unlockedContent) {
+                unlockedContent.innerHTML += rewardHtml;
+            }
+            
+            console.log("Récompense vidéo affichée pour épisode " + episodeId);
+        }
+        
         contentSection.style.display = 'block';
         contentSection.scrollIntoView({ behavior: 'smooth' });
     }

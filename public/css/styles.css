@@ -1944,6 +1944,52 @@ body::after {
 }
 
 /* ==========================================================================
+   RÉCOMPENSE VIDÉO
+   ========================================================================== */
+.reward-section {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border: 2px solid var(--accent-yellow);
+    border-radius: 8px;
+    background: rgba(253, 230, 138, 0.08);
+    box-shadow: var(--glow-yellow);
+}
+
+.reward-title {
+    color: var(--accent-yellow);
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-shadow: 0 0 10px var(--accent-yellow);
+}
+
+.reward-title i {
+    color: var(--accent-yellow);
+}
+
+.reward-description {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.reward-video-container {
+    margin-top: 1rem;
+    border-radius: 4px;
+    overflow: hidden;
+    background: #000;
+}
+
+.reward-video {
+    display: block;
+    width: 100%;
+    max-height: 450px;
+    background: #000;
+}
+
+/* ==========================================================================
    13. FICHIERS BONUS
    ========================================================================== */
 .bonus-files-section {
