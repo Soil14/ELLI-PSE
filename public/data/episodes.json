@@ -8,7 +8,13 @@
       "letter": "E",
       "letterPosition": 1,
       "youtube": "https://youtu.be/JNn1nIZx4BY",
-      "files": []
+      "files": [],
+      "reward": {
+        "type": "video",
+        "url": "/recompenses/reward-ep1-phase1.mp4",
+        "title": "Éclipse – Phase 1",
+        "description": "Phase 1 débloquée"
+      }
     },
     {
       "id": 2,
@@ -27,6 +33,7 @@
       "hint": "Sur le T-shirt d'Alex, une étrange question attire l'attention...",
       "letter": "L",
       "letterPosition": 3,
+      "youtube": "https://youtu.be/aMrCOWF5TrU",
       "files": []
     },
     {
