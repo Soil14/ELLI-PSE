@@ -13,7 +13,7 @@
         "type": "video",
         "url": "/recompenses/reward-ep1-phase1.mp4",
         "title": "Éclipse – Phase 1",
-        "description": "Phase 1 débloquée"
+        "description": "Un enregistrement clandestin retrouvé sur un espace obscur du réseau. Des fichiers apparaissent brièvement à l'écran. Une voix confirme qu'un élément a été déplacé… et partiellement effacé. Ce que tu vois n'est pas l'original."
       }
     },
     {
@@ -29,7 +29,7 @@
         "type": "document",
         "url": "/recompenses/reward-ep2-fiche.pdf",
         "title": "Fiche réseau mafieux",
-        "description": "Fiche débloquée"
+        "description": "Deux fiches criminelles issues d'une administration fictive crédible. Noms connus des services, impliqués dans des affaires violentes et des trafics. Toujours surveillés. Jamais réellement condamnés."
       }
     },
     {
@@ -40,7 +40,13 @@
       "letter": "L",
       "letterPosition": 3,
       "youtube": "https://youtu.be/aMrCOWF5TrU",
-      "files": []
+      "files": [],
+      "reward": {
+        "type": "document",
+        "url": "/recompenses/reward-ep3.pdf",
+        "title": "Récompense Épisode 3",
+        "description": "Extraits d'un manuel technique non référencé. Protocoles, schémas et annotations partiellement censurés. Un dispositif est mentionné. Son usage reste volontairement flou."
+      }
     },
     {
       "id": 4,
@@ -49,7 +55,13 @@
       "hint": "Parmi les documents, un avertissement inquiétant surgit...",
       "letter": "I",
       "letterPosition": 4,
-      "files": []
+      "files": [],
+      "reward": {
+        "type": "audio",
+        "url": "/recompenses/reward-ep4.mp3",
+        "title": "Récompense Épisode 4",
+        "description": "Un message vocal altéré, presque inutilisable. En ralentissant l'enregistrement, un nom semble émerger… sans certitude. Bruits parasites. Urgence perceptible."
+      }
     },
     {
       "id": 5,
@@ -58,7 +70,13 @@
       "hint": "Une référence intrigante : 4.7 – Pourpre...",
       "letter": "P",
       "letterPosition": 5,
-      "files": []
+      "files": [],
+      "reward": {
+        "type": "image",
+        "url": "/recompenses/reward-ep5.jpg",
+        "title": "Récompense Épisode 5",
+        "description": "Un écran issu d'un espace caché du web. Une image floutée, volontairement anonymisée. Un identifiant chiffré apparaît brièvement. Référence : 4.7"
+      }
     },
     {
       "id": 6,
@@ -67,7 +85,13 @@
       "hint": "Derrière cette suite anodine, le mot MOSAÏQUE s'est révélé...",
       "letter": "S",
       "letterPosition": 6,
-      "files": []
+      "files": [],
+      "reward": {
+        "type": "image",
+        "url": "/recompenses/reward-ep6.jpg",
+        "title": "Récompense Épisode 6",
+        "description": "Une hiérarchie fragmentée. Des rôles, des niveaux, des connexions… Plusieurs zones ont été volontairement masquées. La structure existe, mais reste partielle."
+      }
     },
     {
       "id": 7,
@@ -76,7 +100,13 @@
       "hint": "Une clé cryptographique étrange : SALTCRYPTO_EVA94...",
       "letter": "E",
       "letterPosition": 7,
-      "files": []
+      "files": [],
+      "reward": {
+        "type": "video",
+        "url": "/recompenses/reward-ep7.mp4",
+        "title": "Récompense Épisode 7",
+        "description": "Des transactions cryptées défilent à l'écran. Une ligne attire l'attention… puis disparaît. Message affiché : Erreur système."
+      }
     },
     {
       "id": 8,
@@ -85,7 +115,13 @@
       "hint": "Sur une photo d'Élise, un détail frappe l'œil : 05.22.01.94...",
       "letter": "2",
       "letterPosition": 8,
-      "files": []
+      "files": [],
+      "reward": {
+        "type": "video",
+        "url": "/recompenses/reward-ep8.mp4",
+        "title": "Récompense Épisode 8",
+        "description": "Une vidéo déclenchée automatiquement. Voix déformée. Ton neutre, presque administratif. Aucune image explicite. Le malaise vient d'ailleurs."
+      }
     },
     {
       "id": 9,
@@ -94,7 +130,13 @@
       "hint": "Une référence intrigante surgit : Lot 47...",
       "letter": null,
       "letterPosition": null,
-      "files": []
+      "files": [],
+      "reward": {
+        "type": "document",
+        "url": "/recompenses/reward-ep9.pdf",
+        "title": "Récompense Épisode 9",
+        "description": "Pièces officielles barrées, annotations internes. Dossiers clos sans suite. Les preuves existent. Leur reconnaissance a disparu."
+      }
     },
     {
       "id": 10,
@@ -103,7 +145,13 @@
       "hint": "Toutes les lettres s'assemblent enfin : E-L-L-I-P-S-E-2",
       "letter": null,
       "letterPosition": null,
-      "files": []
+      "files": [],
+      "reward": {
+        "type": "video",
+        "url": "/recompenses/reward-ep10.mp4",
+        "title": "Récompense Épisode 10",
+        "description": "Un message clair… mais volontairement incomplet. Certaines réponses émergent. D'autres questions restent ouvertes. Ce n'est pas une fin. C'est un seuil."
+      }
     }
   ]
 }
