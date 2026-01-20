@@ -24,7 +24,13 @@
       "letter": "L",
       "letterPosition": 2,
       "youtube": "https://youtu.be/zsoVkTu9Xb8",
-      "files": []
+      "files": [],
+      "reward": {
+        "type": "document",
+        "url": "/recompenses/reward-ep2-fiche.pdf",
+        "title": "Fiche réseau mafieux",
+        "description": "Fiche débloquée"
+      }
     },
     {
       "id": 3,

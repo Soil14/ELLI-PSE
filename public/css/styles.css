@@ -1989,6 +1989,45 @@ body::after {
     background: #000;
 }
 
+/* Récompense document (PDF, image) */
+.reward-document-container {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.reward-document-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--secondary-bg), #243447);
+    border: 2px solid var(--accent-yellow);
+    color: var(--accent-yellow);
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: all var(--transition-fast);
+    box-shadow: var(--glow-yellow);
+}
+
+.reward-document-link:hover {
+    background: rgba(253, 230, 138, 0.15);
+    transform: translateY(-2px);
+    box-shadow: var(--glow-yellow), 0 0 25px rgba(253, 230, 138, 0.4);
+}
+
+.reward-document-link i {
+    font-size: 1.5rem;
+}
+
+.reward-document-hint {
+    margin-top: 1rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
 /* ==========================================================================
    13. FICHIERS BONUS
    ========================================================================== */
