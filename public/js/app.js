@@ -804,7 +804,41 @@ async function displayUnlockedContent(episodeId, epData) {
                         </div>
                     </div>
                 `;
-                console.log("Récompense document affichée pour épisode " + episodeId);
+                console.log("Récompense affichée - type:", epData.reward.type, "url:", epData.reward.url);
+                
+            } else if (epData.reward.type === 'image') {
+                // Récompense image (JPG, PNG, etc.)
+                rewardHtml = `
+                    <div class="reward-section">
+                        <h3 class="reward-title">
+                            <i class="fas fa-gift" aria-hidden="true"></i>
+                            Récompense débloquée : ${escapeHtml(epData.reward.title)}
+                        </h3>
+                        <p class="reward-description">${escapeHtml(epData.reward.description)}</p>
+                        <div class="reward-image-container">
+                            <img src="${epData.reward.url}" alt="${escapeHtml(epData.reward.title)}" style="max-width:100%; height:auto; display:block; margin:1rem auto;">
+                        </div>
+                    </div>
+                `;
+                console.log("Récompense affichée - type:", epData.reward.type, "url:", epData.reward.url);
+                
+            } else if (epData.reward.type === 'audio') {
+                // Récompense audio (MP3, etc.)
+                rewardHtml = `
+                    <div class="reward-section">
+                        <h3 class="reward-title">
+                            <i class="fas fa-gift" aria-hidden="true"></i>
+                            Récompense débloquée : ${escapeHtml(epData.reward.title)}
+                        </h3>
+                        <p class="reward-description">${escapeHtml(epData.reward.description)}</p>
+                        <div class="reward-audio-container">
+                            <audio controls src="${epData.reward.url}" style="width:100%; margin:1rem 0;">
+                                Votre navigateur ne supporte pas l'audio.
+                            </audio>
+                        </div>
+                    </div>
+                `;
+                console.log("Récompense affichée - type:", epData.reward.type, "url:", epData.reward.url);
             }
             
             if (rewardHtml && unlockedContent) {
