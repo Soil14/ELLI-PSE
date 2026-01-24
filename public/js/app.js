@@ -66,6 +66,11 @@ const AppState = {
         try {
             const saved = localStorage.getItem('ellipse_unlocked');
             this.unlockedEpisodes = saved ? JSON.parse(saved) : [];
+            if (this.unlockedEpisodes.length > 0) {
+                this.unlockedEpisodes.forEach(epId => {
+                    console.log("Épisode " + epId + " chargé depuis localStorage : unlocked");
+                });
+            }
         } catch (e) {
             console.warn('Erreur lors du chargement des données sauvegardées:', e);
             this.unlockedEpisodes = [];
@@ -90,9 +95,20 @@ const AppState = {
         if (!this.unlockedEpisodes.includes(episodeId)) {
             this.unlockedEpisodes.push(episodeId);
             this.saveUnlockedEpisodes();
+            console.log("Mot de passe validé → sauvegarde localStorage pour épisode " + episodeId);
             return true;
         }
         return false;
+    },
+    
+    /**
+     * Réinitialise toute la progression (efface localStorage)
+     */
+    resetProgress() {
+        localStorage.removeItem('ellipse_unlocked');
+        this.unlockedEpisodes = [];
+        console.log("Progression réinitialisée - localStorage vidé");
+        location.reload();
     }
 };
 
@@ -1060,19 +1076,41 @@ function initializeEnigmes() {
     const enigmePasswordInput = $('enigmePasswordInput');
     
     enigmeFolders.forEach(folder => {
-        folder.addEventListener('click', function() {
+        folder.addEventListener('click', async function() {
             if (this.classList.contains('disabled')) return;
             
-            AppState.selectedEpisode = parseInt(this.getAttribute('data-episode'));
-            showEnigmeAuth(AppState.selectedEpisode);
+            const episodeId = parseInt(this.getAttribute('data-episode'));
+            AppState.selectedEpisode = episodeId;
+            
+            // Vérifier si l'épisode est déjà déverrouillé (localStorage)
+            if (AppState.unlockedEpisodes.includes(episodeId)) {
+                console.log("Épisode " + episodeId + " déjà déverrouillé → affichage direct du contenu");
+                const epData = getEpisodeData(episodeId);
+                if (epData) {
+                    await displayUnlockedContent(episodeId, epData);
+                }
+            } else {
+                showEnigmeAuth(episodeId);
+            }
         });
         
-        folder.addEventListener('keydown', function(e) {
+        folder.addEventListener('keydown', async function(e) {
             if (e.key === 'Enter' || e.key === ' ') {
                 e.preventDefault();
                 if (!this.classList.contains('disabled')) {
-                    AppState.selectedEpisode = parseInt(this.getAttribute('data-episode'));
-                    showEnigmeAuth(AppState.selectedEpisode);
+                    const episodeId = parseInt(this.getAttribute('data-episode'));
+                    AppState.selectedEpisode = episodeId;
+                    
+                    // Vérifier si l'épisode est déjà déverrouillé (localStorage)
+                    if (AppState.unlockedEpisodes.includes(episodeId)) {
+                        console.log("Épisode " + episodeId + " déjà déverrouillé → affichage direct du contenu");
+                        const epData = getEpisodeData(episodeId);
+                        if (epData) {
+                            await displayUnlockedContent(episodeId, epData);
+                        }
+                    } else {
+                        showEnigmeAuth(episodeId);
+                    }
                 }
             }
         });
@@ -1273,6 +1311,7 @@ async function init() {
 
 // Exposer les fonctions globalement pour les handlers onclick
 window.showPage = showPage;
+window.resetProgress = function() { AppState.resetProgress(); };
 
 // Lancer l'initialisation au chargement du DOM
 if (document.readyState === 'loading') {
