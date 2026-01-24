@@ -7,7 +7,7 @@
       "hint": "Dans le sous-sol, un tag discret se révèle sur le mur...",
       "letter": "E",
       "letterPosition": 1,
-      "youtube": "https://youtu.be/JNn1nIZx4BY",
+      "youtube": "https://youtu.be/9s4iz1pYp2Y",
       "files": [],
       "reward": {
         "type": "video",
@@ -23,7 +23,7 @@
       "hint": "Sur la fiche personnelle d'Alex, un code énigmatique est apparu...",
       "letter": "L",
       "letterPosition": 2,
-      "youtube": "https://youtu.be/zsoVkTu9Xb8",
+      "youtube": "https://youtu.be/W3Jy7CjKcH8",
       "files": [],
       "reward": {
         "type": "document",
@@ -39,7 +39,7 @@
       "hint": "Sur le T-shirt d'Alex, une étrange question attire l'attention...",
       "letter": "L",
       "letterPosition": 3,
-      "youtube": "https://youtu.be/aMrCOWF5TrU",
+      "youtube": "https://youtu.be/87OPjivcyEk",
       "files": [],
       "reward": {
         "type": "document",
@@ -58,7 +58,7 @@
       "files": [],
       "reward": {
         "type": "audio",
-        "url": "/recompenses/reward-ep4.mp3",
+        "url": "/recompenses/reward-ep4-audio.mp3",
         "title": "Note vocale interceptée",
         "description": "Un message vocal altéré, presque inutilisable. En ralentissant l'enregistrement, un nom semble émerger… sans certitude. Bruits parasites. Urgence perceptible."
       }
@@ -72,8 +72,8 @@
       "letterPosition": 5,
       "files": [],
       "reward": {
-        "type": "image",
-        "url": "/recompenses/reward-ep5.jpg",
+        "type": "video",
+        "url": "/recompenses/reward-ep5-souvenir.mp4",
         "title": "Fragment mémoire — Élise",
         "description": "Un écran issu d'un espace caché du web. Une image floutée, volontairement anonymisée. Un identifiant chiffré apparaît brièvement. Référence : 4.7"
       }
@@ -88,7 +88,7 @@
       "files": [],
       "reward": {
         "type": "image",
-        "url": "/recompenses/reward-ep6.jpg",
+        "url": "/recompenses/reward-ep6-organigramme.jpg",
         "title": "Schéma partiel — Structure interne",
         "description": "Une hiérarchie fragmentée. Des rôles, des niveaux, des connexions… Plusieurs zones ont été volontairement masquées. La structure existe, mais reste partielle."
       }
@@ -103,7 +103,7 @@
       "files": [],
       "reward": {
         "type": "video",
-        "url": "/recompenses/reward-ep7.mp4",
+        "url": "/recompenses/reward-ep7-enchere.mp4",
         "title": "Clé chiffrée — Accès instable",
         "description": "Des transactions cryptées défilent à l'écran. Une ligne attire l'attention… puis disparaît. Message affiché : Erreur système."
       }
@@ -118,7 +118,7 @@
       "files": [],
       "reward": {
         "type": "video",
-        "url": "/recompenses/reward-ep8.mp4",
+        "url": "/recompenses/reward-ep8-lot47.mp4",
         "title": "Enregistrement classé — Lot 47",
         "description": "Une vidéo déclenchée automatiquement. Voix déformée. Ton neutre, presque administratif. Aucune image explicite. Le malaise vient d'ailleurs."
       }
@@ -132,8 +132,8 @@
       "letterPosition": null,
       "files": [],
       "reward": {
-        "type": "document",
-        "url": "/recompenses/reward-ep9.pdf",
+        "type": "image",
+        "url": "/recompenses/reward-ep9-disparu.jpg",
         "title": "Trace financière — Transaction 47",
         "description": "Pièces officielles barrées, annotations internes. Dossiers clos sans suite. Les preuves existent. Leur reconnaissance a disparu."
       }
