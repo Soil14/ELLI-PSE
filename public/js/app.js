@@ -409,8 +409,8 @@ function initializeEpisodesPage() {
         const disabledClass = !isAvailable ? 'disabled' : '';
         const linkHandler = !isAvailable ? 'onclick="return false;" tabindex="-1"' : '';
         
-        // URL YouTube (placeholder - à remplacer)
-        const youtubeUrl = `https://www.youtube.com/watch?v=VOTRE_VIDEO_${i}`;
+        // URL YouTube depuis episodes.json
+        const youtubeUrl = epData && epData.youtube ? epData.youtube : '#';
         
         episodeCard.innerHTML = `
             <div class="episode-header">
