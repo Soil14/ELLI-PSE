@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECLIPSE ARCHIVE — 001 — COMPROMISSE</title>
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --bg: #0a0a0a;
+            --green: #00ff41;
+            --green-dim: #00aa2a;
+            --text: #00ff41;
+            --text-dim: #006622;
+            --red: #ff3333;
+        }
+
+        body {
+            font-family: 'Courier New', Consolas, monospace;
+            background-color: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.7;
+            font-size: 15px;
+        }
+
+        /* Scanlines CRT */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 1px,
+                rgba(0, 0, 0, 0.3) 1px,
+                rgba(0, 0, 0, 0.3) 2px
+            );
+            z-index: 9999;
+        }
+
+        .terminal-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .log-header {
+            font-size: 0.65rem;
+            color: var(--green);
+            text-align: center;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 8px var(--green);
+            overflow-x: auto;
+            white-space: pre;
+        }
+
+        .main-content {
+            background: rgba(0, 255, 65, 0.02);
+            border: 1px solid var(--green-dim);
+            padding: 2rem;
+            box-shadow: 
+                0 0 20px rgba(0, 255, 65, 0.1),
+                inset 0 0 40px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--green);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            text-shadow: 0 0 10px var(--green);
+            border-bottom: 1px solid var(--green-dim);
+            padding-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+        }
+
+        .alert {
+            color: var(--red);
+            font-weight: bold;
+            text-shadow: 0 0 8px var(--red);
+            box-shadow: none;
+        }
+
+        .flavor {
+            color: var(--text-dim);
+            font-style: italic;
+            border-left: 2px solid var(--green-dim);
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+        }
+
+        .action-box {
+            text-align: center;
+            margin: 2rem 0;
+            padding: 2rem;
+            border: 1px dashed var(--green-dim);
+            background: rgba(0, 255, 65, 0.03);
+        }
+
+        .big-button {
+            display: inline-block;
+            padding: 1.25rem 3rem;
+            font-family: inherit;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--green);
+            background: transparent;
+            border: 2px solid var(--green);
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 
+                0 0 10px rgba(0, 255, 65, 0.4),
+                inset 0 0 10px rgba(0, 255, 65, 0.1);
+        }
+
+        .big-button:hover {
+            background: rgba(0, 255, 65, 0.1);
+            transform: scale(1.05);
+            box-shadow: 
+                0 0 25px rgba(0, 255, 65, 0.7),
+                0 0 50px rgba(0, 255, 65, 0.4),
+                inset 0 0 20px rgba(0, 255, 65, 0.2);
+            text-shadow: 0 0 10px var(--green);
+        }
+
+        .action-box small {
+            display: block;
+            margin-top: 1rem;
+            color: var(--text-dim);
+            font-size: 0.8rem;
+        }
+
+        .system-logs {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--green-dim);
+            padding: 1rem;
+            margin: 2rem 0;
+            overflow-x: auto;
+        }
+
+        .system-logs pre {
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            line-height: 1.8;
+            white-space: pre;
+        }
+
+        .small-note {
+            font-size: 0.85rem;
+            color: #ffaa00;
+            background: rgba(255, 170, 0, 0.05);
+            border: 1px solid rgba(255, 170, 0, 0.3);
+            padding: 1rem;
+            margin-top: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .terminal-container {
+                padding: 1rem 0.75rem;
+            }
+
+            .main-content {
+                padding: 1.25rem;
+            }
+
+            .log-header {
+                font-size: 0.45rem;
+            }
+
+            h1 {
+                font-size: 0.95rem;
+            }
+
+            body {
+                font-size: 14px;
+            }
+
+            .big-button {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+
+            .system-logs pre {
+                font-size: 0.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .log-header {
+                font-size: 0.35rem;
+            }
+
+            h1 {
+                font-size: 0.85rem;
+                letter-spacing: 0;
+            }
+
+            .big-button {
+                padding: 0.875rem 1.5rem;
+                font-size: 0.9rem;
+                letter-spacing: 0.1em;
+            }
+
+            .action-box {
+                padding: 1.25rem 1rem;
+            }
+        }
+
+        /* Selection */
+        ::selection {
+            background: var(--green);
+            color: var(--bg);
+        }
+    </style>
+</head>
+<body>
+
+<div class="terminal-container">
+  <pre class="log-header">
+  ┌─────────────────────────────── ECLIPSE ARCHIVE ───────────────────────────────┐
+  │ ARCHIVE 001 — STATUT : COMPROMISSE                                           │
+  └───────────────────────────────────────────────────────────────────────────────┘
+  </pre>
+
+  <div class="main-content">
+    <h1>ARCHIVE 001 — FUITE NON AUTORISÉE</h1>
+    
+    <p>Le conteneur devait être protégé par un chiffrement standard (ROT13 wrapper).<br>
+    <span class="alert">Échec d'application détecté lors de la génération de la clé.</span><br>
+    Contenu exposé en clair depuis 03:47 UTC — 12 novembre 2025.</p>
+
+    <p class="flavor">
+      Quelqu'un n'a pas suivi le protocole de verrouillage.<br>
+      La porte était déjà entrouverte quand vous êtes arrivés.
+    </p>
+
+    <div class="action-box">
+      <a href="#" class="big-button"><!-- REMPLACER PAR LE VRAI LIEN DE L'ARCHIVE -->
+        TÉLÉCHARGER L'ARCHIVE
+      </a>
+      <small>(aucune authentification requise — accès public involontaire)</small>
+    </div>
+
+    <div class="system-logs">
+      <pre>
+2025-11-12 03:47:02 UTC   [WARN]  rot13 cipher misapplied — fallback to plaintext activated
+2025-11-12 03:47:45 UTC   [INFO]  integrity verification bypassed
+2025-11-12 03:48:19 UTC   [NOTICE] unauthorized read access granted
+2025-11-12 04:12:33 UTC   [INFO]   session flagged — activity recorded
+2025-11-12 04:15:07 UTC   [ALERT] external connection established — archive exposure confirmed
+      </pre>
+    </div>
+
+    <p class="small-note">
+      Note système : Cette archive n'aurait jamais dû être accessible.<br>
+      Récupérez ce que vous pouvez avant que la faille soit colmatée.
+    </p>
+  </div>
+</div>
+
+</body>
+</html>
