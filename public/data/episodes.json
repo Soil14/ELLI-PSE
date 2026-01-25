@@ -3,7 +3,8 @@
     {
       "id": 1,
       "title": "ÉPISODE 1 — Prisonnier Amnésique",
-      "password": "Le vrai fichier est ailleurs",
+      "password": null,
+      "compromised": true,
       "hint": "Dans le sous-sol, un tag discret se révèle sur le mur...",
       "letter": "E",
       "letterPosition": 1,

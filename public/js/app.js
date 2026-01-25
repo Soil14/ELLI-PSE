@@ -586,12 +586,20 @@ function updateProgress() {
    ========================================================================== */
 
 /**
+ * Vérifie si un épisode est compromis (accès direct sans mot de passe)
+ */
+function isCompromised(epData) {
+    return epData && (epData.id === 1 || epData.compromised === true);
+}
+
+/**
  * Affiche la section d'authentification pour une énigme
  */
 function showEnigmeAuth(episode) {
     const authSection = $('enigmeAuthSection');
     const selectedText = $('selectedEpisodeText');
     const bonusContainer = $('bonusFilesContainer');
+    const epData = getEpisodeData(episode);
     
     // Masquer le contenu bonus précédent
     if (bonusContainer) {
@@ -601,7 +609,35 @@ function showEnigmeAuth(episode) {
     
     if (authSection) {
         authSection.style.display = 'block';
+        
+        // Vérifier si l'épisode est compromis
+        if (isCompromised(epData)) {
+            console.log("Épisode " + episode + " compromis → accès direct autorisé");
+            renderCompromisedNotice(authSection, episode, epData);
+        } else {
+            renderPasswordForm(authSection, episode);
+        }
     }
+}
+
+/**
+ * Affiche le formulaire de mot de passe classique
+ */
+function renderPasswordForm(authSection, episode) {
+    const selectedText = $('selectedEpisodeText');
+    const passwordForm = authSection.querySelector('.mission-section');
+    
+    // Supprimer la notice compromised si elle existe
+    const existingNotice = authSection.querySelector('.compromised-notice');
+    if (existingNotice) {
+        existingNotice.remove();
+    }
+    
+    // Afficher le formulaire normal
+    if (passwordForm) {
+        passwordForm.style.display = 'block';
+    }
+    
     if (selectedText) {
         selectedText.textContent = `Saisissez le mot de passe pour accéder aux indices de l'épisode ${episode}.`;
     }
@@ -613,6 +649,56 @@ function showEnigmeAuth(episode) {
             passwordInput.focus();
         }
     }, 100);
+}
+
+/**
+ * Affiche la notice pour un épisode compromis (accès direct)
+ */
+function renderCompromisedNotice(authSection, episode, epData) {
+    const passwordForm = authSection.querySelector('.mission-section');
+    
+    // Masquer le formulaire de mot de passe
+    if (passwordForm) {
+        passwordForm.style.display = 'none';
+    }
+    
+    // Supprimer une ancienne notice si elle existe
+    const existingNotice = authSection.querySelector('.compromised-notice');
+    if (existingNotice) {
+        existingNotice.remove();
+    }
+    
+    // Créer la notice compromised
+    const notice = document.createElement('div');
+    notice.className = 'compromised-notice';
+    notice.innerHTML = `
+        <pre class="compromised-header">
+  ┌─────────────────────────────── SYSTEM NOTICE ───────────────────────────────┐
+  │ ARCHIVE 001 — COMPROMISEE                                                   │
+  └───────────────────────────────────────────────────────────────────────────────┘
+  Accès non sécurisé détecté
+  Chiffrement ROT13 mal appliqué — fallback plaintext
+  Archive déjà exposée — récupération autorisée
+        </pre>
+        <p class="compromised-flavor">La porte était entrouverte. Quelqu'un a oublié de verrouiller.</p>
+        <button id="access-direct" class="big-access-button">ACCÉDER À L'ARCHIVE</button>
+    `;
+    
+    authSection.appendChild(notice);
+    
+    // Ajouter l'événement au bouton
+    const accessBtn = notice.querySelector('#access-direct');
+    if (accessBtn) {
+        accessBtn.addEventListener('click', async () => {
+            console.log("Accès direct épisode " + episode + " → déblocage récompense");
+            // Marquer comme débloqué
+            AppState.addUnlockedEpisode(episode);
+            updateProgress();
+            updateResolveButtons();
+            // Afficher le contenu
+            await displayUnlockedContent(episode, epData);
+        });
+    }
 }
 
 /**
