@@ -106,8 +106,9 @@ const AppState = {
      */
     resetProgress() {
         localStorage.removeItem('ellipse_unlocked');
+        localStorage.removeItem('ellipse_main_unlocked');
         this.unlockedEpisodes = [];
-        console.log("Progression réinitialisée - localStorage vidé");
+        console.log("Progression réinitialisée - localStorage vidé (code principal + énigmes)");
         location.reload();
     }
 };
@@ -1241,6 +1242,21 @@ function closeModal() {
 }
 
 /**
+ * Vérifie si le code principal a déjà été validé (localStorage)
+ */
+function isMainAccessUnlocked() {
+    return localStorage.getItem('ellipse_main_unlocked') === 'true';
+}
+
+/**
+ * Sauvegarde l'accès principal dans localStorage
+ */
+function saveMainAccessUnlock() {
+    localStorage.setItem('ellipse_main_unlocked', 'true');
+    console.log("Code principal validé → sauvegarde localStorage");
+}
+
+/**
  * Vérifie le code d'accès principal
  */
 function checkAccessCode() {
@@ -1252,6 +1268,7 @@ function checkAccessCode() {
     const enteredCode = accessCodeInput.value.trim().toUpperCase();
     
     if (enteredCode === ACCESS_CODE) {
+        saveMainAccessUnlock();
         closeModal();
         showPage('menu');
         showDistortionEffect();
@@ -1390,6 +1407,12 @@ async function init() {
     initializePasswordToggle();
     updateProgress();
     updateResolveButtons();
+    
+    // Vérifier si le code principal a déjà été validé (localStorage)
+    if (isMainAccessUnlocked()) {
+        console.log("Code principal déjà validé (localStorage) → accès direct au menu");
+        showPage('menu');
+    }
     
     console.log('ELLI-PSE v2.0.0 - Application initialisée');
     console.log('Épisodes déverrouillés:', AppState.unlockedEpisodes);
