@@ -56,6 +56,7 @@
       "hint": "Parmi les documents, un avertissement inquiétant surgit...",
       "letter": "I",
       "letterPosition": 4,
+      "youtube": "https://youtu.be/Ra3yWejvpGY",
       "files": [],
       "reward": {
         "type": "audio",
@@ -71,6 +72,7 @@
       "hint": "Une référence intrigante : 4.7 – Pourpre...",
       "letter": "P",
       "letterPosition": 5,
+      "youtube": "https://youtu.be/Kee_PE8Rdlo",
       "files": [],
       "reward": {
         "type": "video",
@@ -86,6 +88,7 @@
       "hint": "Derrière cette suite anodine, le mot MOSAÏQUE s'est révélé...",
       "letter": "S",
       "letterPosition": 6,
+      "youtube": "https://youtu.be/8BtS-mvOAWE",
       "files": [],
       "reward": {
         "type": "image",
@@ -101,6 +104,7 @@
       "hint": "Une clé cryptographique étrange : SALTCRYPTO_EVA94...",
       "letter": "E",
       "letterPosition": 7,
+      "youtube": "https://youtu.be/gAMcWVKMHIA",
       "files": [],
       "reward": {
         "type": "video",
