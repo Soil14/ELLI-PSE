@@ -408,10 +408,9 @@ function initializeEpisodesPage() {
         
         const disabledAttr = !isAvailable ? 'disabled aria-disabled="true"' : '';
         const disabledClass = !isAvailable ? 'disabled' : '';
-        const linkHandler = !isAvailable ? 'onclick="return false;" tabindex="-1"' : '';
         
-        // URL YouTube depuis episodes.json
-        const youtubeUrl = epData && epData.youtube ? epData.youtube : '#';
+        // URL YouTube depuis episodes.json (lien brut ou vide)
+        const youtubeUrl = epData && epData.youtube ? epData.youtube : '';
         
         episodeCard.innerHTML = `
             <div class="episode-header">
@@ -426,11 +425,9 @@ function initializeEpisodesPage() {
             </div>
             ${countdownHtml}
             <div class="episode-actions">
-                <a href="${youtubeUrl}" 
-                   target="_blank" 
-                   rel="noopener noreferrer"
+                <a href="#"
                    class="episode-btn play-btn ${disabledClass}" 
-                   ${linkHandler}
+                   data-episode="${i}"
                    aria-label="Regarder l'épisode ${i}">
                     <i class="fas fa-play" aria-hidden="true"></i> REGARDER
                 </a>
@@ -445,6 +442,24 @@ function initializeEpisodesPage() {
         
         episodesGrid.appendChild(episodeCard);
     }
+    
+    // Événements pour les boutons "Regarder"
+    episodesGrid.querySelectorAll('.play-btn').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const episodeId = parseInt(this.getAttribute('data-episode'));
+            const epData = getEpisodeData(episodeId);
+            
+            if (!epData || !epData.youtube) {
+                console.warn('Bouton Regarder cliqué - URL YouTube manquante pour épisode', episodeId, epData);
+                return;
+            }
+            
+            console.log('Bouton Regarder cliqué - URL YouTube :', epData.youtube);
+            // Redirection directe vers YouTube dans un nouvel onglet
+            window.open(epData.youtube, '_blank', 'noopener,noreferrer');
+        });
+    });
     
     // Événements pour les boutons "Résoudre"
     episodesGrid.querySelectorAll('.solve-btn').forEach(btn => {
@@ -789,7 +804,11 @@ async function verifyAndUnlock(episodeId, enteredPassword) {
     }
     
     // Comparaison insensible à la casse
-    const isCorrect = enteredPassword.trim().toLowerCase() === epData.password.toLowerCase();
+    const entered = enteredPassword.trim();
+    const stored = (epData.password || '').toString().trim();
+    console.log('Validation énigme épisode', episodeId, '| saisi =', entered, '| attendu =', stored);
+    
+    const isCorrect = stored.length > 0 && entered.toLowerCase() === stored.toLowerCase();
     
     if (isCorrect) {
         // Succès !
