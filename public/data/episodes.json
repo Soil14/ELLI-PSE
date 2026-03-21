@@ -131,11 +131,12 @@
     },
     {
       "id": 9,
-      "password": "Lot 47",
+      "password": "FV869YT",
       "title": "ÉPISODE 9 — La Fausse Libération",
       "hint": "Une référence intrigante surgit : Lot 47...",
       "letter": null,
       "letterPosition": null,
+      "youtube": "https://youtu.be/UgqLfsWiBxA",
       "files": [],
       "reward": {
         "type": "image",
