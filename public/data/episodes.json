@@ -155,10 +155,10 @@
       "youtube": "https://youtu.be/x6dq4khcHnA",
       "files": [],
       "reward": {
-        "type": "video",
-        "url": "/recompenses/reward-ep10.mp4",
-        "title": "Conversation interceptée",
-        "description": "Une discussion entre les ravisseurs et une voix inconnue. Des ordres. Une hiérarchie. Et la confirmation que tout ne fait que commencer."
+        "type": "audio",
+        "url": "/recompenses/reward-ep10-audio.wav",
+        "title": "Transmission finale",
+        "description": "Un message clair mais volontairement incomplet. Certaines réponses émergent. D'autres questions restent ouvertes. Ce n'est pas une fin. C'est un seuil."
       }
     }
   ]
